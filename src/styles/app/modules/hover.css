@@ -1,0 +1,15 @@
+@media (hover: hover) and (pointer: fine) {
+	summary:hover,
+	summary:focus,
+	button:hover,
+	button:focus,
+	[role='button']:hover,
+	[role='button']:focus {
+		cursor: pointer;
+	}
+
+	button:disabled,
+	[role='button']:disabled {
+		cursor: not-allowed;
+	}
+}

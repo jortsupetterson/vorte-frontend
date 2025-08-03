@@ -1,0 +1,32 @@
+input[type='color'] {
+	background: transparent;
+	border-radius: 100%;
+	padding: 0;
+	min-height: 5vh;
+	max-height: 5vh;
+	min-width: 5vh;
+	max-width: 5vh;
+	cursor: pointer;
+}
+
+input[type='color'].ghost {
+	opacity: 60%;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+	padding: 0;
+	border: none;
+	min-height: 5vh;
+	max-height: 5vh;
+	min-width: 5vh;
+	max-width: 5vh;
+}
+
+input[type='color']::-webkit-color-swatch {
+	border: none;
+	border-radius: 50%;
+	min-height: 5vh;
+	max-height: 5vh;
+	min-width: 5vh;
+	max-width: 5vh;
+}

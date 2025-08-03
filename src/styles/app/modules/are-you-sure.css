@@ -1,0 +1,28 @@
+dialog.are-you-sure {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: var(--pad2);
+	background: var(--solid-ghost1);
+	color: var(--text);
+	padding: var(--pad3);
+	border-radius: var(--br3);
+	font-family: 'Inter';
+	border: solid var(--text) 0.1vh;
+}
+dialog.are-you-sure div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	min-width: 100%;
+}
+
+dialog.are-you-sure div button#yes {
+	background: red;
+}

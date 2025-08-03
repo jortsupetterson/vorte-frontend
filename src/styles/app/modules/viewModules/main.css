@@ -1,0 +1,12 @@
+view main {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--pad3);
+	padding: var(--pad3);
+	min-width: 100%;
+	min-height: 88%;
+}

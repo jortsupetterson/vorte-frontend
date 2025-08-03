@@ -1,0 +1,51 @@
+@import url('./bannerModules/nav-button.css');
+@import url('./bannerModules/profile-button.css');
+@import url('./bannerModules/h1.css');
+@import url('./bannerModules/nav-dropdown.css');
+@import url('./bannerModules/profile-dropdown.css');
+@import url('./bannerModules/dropdown-content.css');
+
+banner {
+	position: fixed;
+	height: 10vh;
+	width: var(--main-width);
+	top: var(--pad1);
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding: 0 var(--pad2);
+	border-radius: var(--br3);
+	background: var(--bg-ghost);
+	overflow: visible;
+	z-index: 1;
+}
+
+nav-dropdown,
+profile-dropdown {
+	display: none;
+}
+
+nav-dropdown.toggled,
+profile-dropdown.toggled {
+	background: var(--solid-ghost2);
+	position: fixed;
+	top: calc(10vh + var(--pad1));
+	display: flex;
+	flex-direction: column;
+	width: clamp(300px, calc((var(--main-width) / 4) + var(--pad1)), var(--main-width));
+	border-radius: var(--br3);
+	padding: var(--pad3);
+	gap: var(--pad3);
+	z-index: 1;
+}
+
+nav-button::before,
+profile-button::before {
+	content: '';
+	position: absolute;
+	top: -3vh;
+	left: -3vh;
+	bottom: -3vh;
+	right: -3vh;
+	transform: translate(-1.5vh);
+	background: transparent;
+}

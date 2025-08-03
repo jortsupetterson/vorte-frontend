@@ -1,0 +1,42 @@
+@import url('./modules/fonts.css');
+@import url('./modules/vars.css');
+@import url('./modules/normalize.css');
+@import url('./modules/body.css');
+@import url('./modules/scrollbar.css');
+@import url('./modules/banner.css');
+@import url('./modules/view.css');
+@import url('./modules/sidebar.css');
+@import url('./modules/hover.css');
+@import url('./modules/action.css');
+@import url('./modules/are-you-sure.css');
+@import url('./modules/dialog.css');
+@import url('./modules/loader.css');
+
+menu-heading {
+	pointer-events: none;
+}
+
+div.popup {
+	position: 'fixed';
+	top: 0;
+	left: 0;
+	transform: translate(-2.5vh, -2.5vh);
+	min-width: 100vw;
+	min-height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
+	background: var(--bg-ghost);
+	z-index: 10;
+}
+
+.transparent {
+	background: transparent;
+}
+
+.primary {
+	background: var(--primary);
+}
+
+.secondary {
+	background: var(--secondary);
+}

@@ -1,0 +1,25 @@
+/scripts/network/sw.js
+  Service-Worker-Allowed: /
+  Cache-Control: public, max-age=0, must-revalidate
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/web-manifest/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/browserconfig.xml
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts tallennetaan paikalliseen välimuistiin ikuisesti
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+#/styles/*
+  #Cache-Control: public, max-age=60, s-maxage=300, stale-while-revalidate=30
+
+#/scripts/*
+  #Cache-Control: public, max-age=60, s-maxage=300, stale-while-revalidate=30

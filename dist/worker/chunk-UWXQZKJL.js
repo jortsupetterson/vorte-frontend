@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-EI7MMDWY.js";function n(){let t=new Uint8Array(16);crypto.getRandomValues(t);let o="";for(let r of t)o+=String.fromCharCode(r);return btoa(o)}e(n,"getNonce");export{n as a};

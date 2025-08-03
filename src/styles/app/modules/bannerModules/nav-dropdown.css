@@ -1,0 +1,17 @@
+nav-dropdown.toggled {
+  left: 0;
+  padding-bottom: var(--pad3);
+}
+
+nav-dropdown.toggled details {
+  padding-bottom: var(--pad3);
+  border-bottom: solid clamp(0.4px, 0.25vh, 6px) var(--bg-ghost);
+  min-width: 100%;
+}
+
+nav-dropdown.toggled details ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--pad2);
+  gap: var(--pad2);
+}

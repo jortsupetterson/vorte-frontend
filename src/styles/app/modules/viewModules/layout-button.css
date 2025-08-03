@@ -1,0 +1,37 @@
+layout-button {
+	position: absolute;
+	top: var(--pad2);
+	left: var(--pad2);
+	min-width: 5vh;
+	max-width: 5vh;
+	min-height: 3vh;
+	max-height: 3vh;
+	border: solid clamp(0.4px, 0.25vh, 6px) var(--text);
+	border-radius: var(--br1);
+}
+
+layout-button::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	min-height: 0.5px;
+	min-width: 100%;
+	background: var(--text);
+}
+
+layout-button::before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+	min-height: 80%;
+	min-width: 0.5px;
+	background: var(--text);
+}
+
+layout-button.toggled::before {
+	background: transparent;
+}

@@ -1,0 +1,45 @@
+@import url('./sidebarModules/hide-sidebar-button.css');
+
+sidebar {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: calc(100vh - 10vh - calc(var(--pad1) * 3));
+	width: var(--sidebar-width);
+	border-radius: var(--br3);
+	background: var(--bg-ghost);
+	top: calc(10vh + var(--pad2));
+	transition: transform 0.2s ease, left 0.2s ease;
+	will-change: left, transform;
+	left: 0;
+	transform: translate(-100%);
+	padding: var(--pad3);
+	gap: var(--pad3);
+}
+
+sidebar.toggled {
+	left: var(--pad1);
+	transform: translate(0);
+}
+
+sidebar main {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: var(--pad3);
+}
+
+sidebar main ul li a menu-item {
+	font-family: 'Inter';
+	font-weight: 100;
+}
+
+sidebar h3 {
+	margin-top: var(--pad3);
+	font-size: clamp(15px, 3vh, 30px);
+	pointer-events: none;
+	font-weight: 400;
+}

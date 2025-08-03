@@ -1,0 +1,7 @@
+input {
+	background: var(--bg-ghost);
+	padding: calc(var(--pad1) / 1.5);
+	border-radius: var(--br1);
+	min-width: 90%;
+	max-width: 90%;
+}

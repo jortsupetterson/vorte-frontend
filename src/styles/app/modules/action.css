@@ -1,0 +1,23 @@
+.action,
+.function {
+	font-family: 'Inter';
+	font-size: clamp(12px, 2vh, 20px);
+}
+
+.action::before {
+	content: '';
+	display: inline-block;
+	background: var(--secondary);
+	height: clamp(12px, 2vh, 20px);
+	width: clamp(1px, 0.25vh, 10px);
+	transform: translate(-100%, 15%);
+}
+
+.function::before {
+	content: '';
+	display: inline-block;
+	background: var(--primary);
+	height: clamp(12px, 2vh, 20px);
+	width: clamp(1px, 0.25vh, 10px);
+	transform: translate(-100%, 10%);
+}

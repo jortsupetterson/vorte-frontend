@@ -1,0 +1,38 @@
+hide-sidebar-button {
+  position: absolute;
+  top: var(--pad2);
+  left: var(--pad2);
+  min-width: 8%;
+  min-height: 1.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh;
+}
+
+hide-sidebar-button::before {
+  position: absolute;
+  content: "";
+  display: block;
+  min-height: 1.5vh;
+  min-width: 1.5vh;
+  height: 1.5vh;
+  width: 1.5vh;
+  max-height: 1.5vh;
+  max-width: 1.5vh;
+  left: 0;
+  background: transparent;
+  border-bottom: solid clamp(0.4px, 0.25vh, 6px) var(--text);
+  border-left: solid clamp(0.4px, 0.25vh, 6px) var(--text);
+  transform: translate(10%, 0) rotateZ(45deg);
+}
+
+hide-sidebar-button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  display: block;
+  height: clamp(0.4px, 0.25vh, 6px);
+  min-width: 100%;
+  background: var(--text);
+}

@@ -1,0 +1,58 @@
+dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--pad2);
+	padding: var(--pad2);
+	background: var(--solid-ghost1);
+	color: var(--text);
+	border: solid var(--bg-ghost) var(--br1);
+	border-radius: (--br3);
+	text-align: center;
+	min-height: 20vh;
+	min-width: 350px;
+	width: max-content;
+	max-width: 90%;
+	font-family: 'Inter';
+}
+
+dialog > * {
+	max-width: 90%;
+}
+
+dialog a {
+	text-align: center;
+}
+
+dialog ol {
+	min-width: 90%;
+	list-style: none;
+	display: flex;
+	font-family: 'Inter';
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	gap: var(--pad2);
+}
+
+dialog ol li {
+	max-width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: var(--pad1);
+}
+
+dialog svg {
+	width: 3vh;
+	height: 3vh;
+	fill: var(--text);
+}

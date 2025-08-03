@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-contrast="normal">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/styles/app.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Vorte | Vorte</title>
+  </head>
+  <body>
+    <banner role="banner">
+      <nav-button
+        role="button"
+        title="Application navigation menu"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </nav-button>
+
+      <h1
+        role="status"
+        aria-live="polite"
+        aria-label="Current view"
+      >
+        <!-- Replace page name -->
+        My Vorte
+      </h1>
+
+      <nav-dropdown role="menubar">
+
+        <a
+          href="/en/sign-out"
+          hreflang="en"
+          title="Add Vorte to your device's home screen"
+        >
+          <menu-item>Install Vorte to your device</menu-item>
+        </a>
+
+        <menu-heading>MY VORTE</menu-heading>
+
+        <a
+          href="/en/control-panel"
+          hreflang="en"
+          title="Navigate to My Vorte control panel"
+        >
+          <menu-item>Control panel</menu-item>
+        </a>
+
+        <details>
+          <summary>
+            <menu-item>Apps</menu-item>
+          </summary>
+
+          <ul>
+            <li>
+              <a
+                href="/en/road-to-entrepreneurship"
+                hreflang="en"
+                title="Navigate to road to entrepreneurship application"
+              >
+                <menu-sub-item>Road to entrepeneurship</menu-item>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/en/my-vorte/coming-soon"
+                hreflang="en"
+                title="Navigate to a page listing coming up My Vorte apps"
+              >
+                <menu-sub-item>Coming soon...</menu-item>
+              </a>
+            </li>
+          </ul>
+        </details>
+
+        <menu-heading>VORTEPRENEUR</menu-heading>
+        <a
+          href="/en/vortepreneur/coming-soon"
+          hreflang="en"
+          title="Navigate to a page listing coming up Vortepreneur apps"
+        >
+          <menu-item>Coming soon...</menu-item>
+        </a>
+      </nav-dropdown>
+
+      <profile-button
+        role="button"
+        title="Profile settings menu"
+      >
+        <div></div>
+        <div></div>
+      </profile-button>
+
+      <profile-dropdown role="menubar">
+        <a
+          href="/en/my-settings"
+          hreflang="en"
+          title="Navigate to your settings"
+        >
+          <menu-item>My settings</menu-item>
+        </a>
+        <a
+          href="/en/sign-out"
+          hreflang="en"
+          title="Remove authentication cookies"
+        >
+          <menu-item>Sign out</menu-item>
+        </a>
+      </profile-dropdown>
+    </banner>
+
+    <view class="toggled" role="main"> 
+        <header>
+        <layout-button role="button"title="Adjust layout">
+        </layout-button>
+        </header>
+        <main></main>
+    </view>
+
+ <sidebar class="toggled" role="menubar">
+      <header>
+        <hide-sidebar-button role="button"title="Hide sidebar">
+        </hide-sidebar-button>
+      </header>
+
+      <main>
+        <menu-heading>APPS:</menu-heading>
+
+        <a
+          href="/en/road-to-entrepreneurship"
+          hreflang="en"
+          title="Navigate to a page listing coming up Vortepreneur apps"
+        >
+          <menu-item>Road to entrepreneurship</menu-item>
+        </a>
+
+
+        <a
+          href="/en/vortepreneur/coming-soon"
+          hreflang="en"
+          title="Navigate to a page listing coming up Vortepreneur apps"
+        >
+          <menu-item>Coming soon...</menu-item>
+        </a>
+        </main>
+    </sidebar>
+
+    <script type="module" src="/scripts/app.js" defer></script>
+  </body>
+</html>

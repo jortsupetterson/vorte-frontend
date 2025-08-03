@@ -1,0 +1,7 @@
+html[data-view='sign_up'] a#sign_up menu-item {
+	font-weight: 500;
+}
+
+html[data-view='sign_in'] a#sign_in menu-item {
+	font-weight: 500;
+}

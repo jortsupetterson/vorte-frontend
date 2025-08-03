@@ -1,0 +1,20 @@
+view main section div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	background: var(--bg-ghost);
+	min-width: 100%;
+	max-width: 100%;
+	height: auto;
+	padding: var(--pad2);
+	border-radius: var(--br2);
+}
+
+view main section div.row {
+	flex-direction: row;
+}
+
+view main section div.column {
+	flex-direction: column;
+}

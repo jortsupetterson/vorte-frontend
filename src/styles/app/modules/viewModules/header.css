@@ -1,0 +1,24 @@
+view header {
+	position: sticky;
+	top: -1%;
+	min-width: 100%;
+	min-height: 12%;
+	background: var(--solid-ghost1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+h2 {
+	font-family: 'Poppins';
+	text-align: center;
+	font-size: 2.75vh;
+	font-weight: 400;
+	max-width: 50%;
+}
+
+.view-header-button {
+	position: absolute;
+	right: 2.5%;
+}

@@ -1,0 +1,90 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"account_id": "e8ef5da3c57b544081f2e4181d6cecc9",
+	"name": "frontend",
+	"main": "./dist/worker/serverSideRouter.js",
+	"compatibility_date": "2025-07-25",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"minify": true,
+	"dev": {
+		"local_protocol": "https"
+	},
+	"build": {
+		"watch_dir": "./src",
+		"command": "node build.js",
+		"cwd": "."
+	},
+	"assets": {
+		"directory": "./dist/assets"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"placement": { "mode": "smart" },
+	"secrets_store_secrets": [
+		{
+			"binding": "COOKIES_ENC_KEY",
+			"secret_name": "cookies-enc-key",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "SESSION_VERIFIER",
+			"secret_name": "session-verifier",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "AUTHN_VERIFIER",
+			"secret_name": "authn-verifier",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "AUTHN_ALIAS_SALT",
+			"secret_name": "authn-alias-salt",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "GOOGLE_OAUTH_CLIENT_SECRET",
+			"secret_name": "google-oauth-client-secret",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "MS_OAUTH_CLIENT_SECRET",
+			"secret_name": "ms-oauth-client-secret",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "TURNSTILE_SECRET",
+			"secret_name": "turnstile-secret",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "USER_IDENTIFIERS_KV",
+			"id": "16b7f10d0c794ddcb0793305f80107df",
+			"preview_id": "3c74d70e263b4de9a7c97399266a66f3"
+		},
+		{
+			"binding": "BANNED_IPS_KV",
+			"id": "a66d8050a26a4af39246fadf8c74a13a",
+			"preview_id": "2d8bb2f80e1648ec95638157f36cab15"
+		},
+		{
+			"binding": "AUTHN_SESSIONS_KV",
+			"id": "836b6cfcf484442d855413d6480d5092",
+			"preview_id": "df4fbf6456aa41c7b39b27412968f134"
+		}
+	],
+	"services": [
+		{
+			"binding": "MAIL_SERVICE",
+			"service": "mail-service-v0",
+			"entrypoint": "VorteMailService"
+		},
+		{
+			"binding": "DATA_SERVICE",
+			"service": "data-service-v0",
+			"entrypoint": "VorteDataService"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+menu-item {
+	margin-left: var(--pad1);
+	font-size: clamp(12px, 2.75vh, 20px);
+	max-width: 80%;
+}
+
+menu-item::before {
+	content: '';
+	display: inline-block;
+	background: var(--primary);
+	height: clamp(12px, 2.75vh, 20px);
+	width: clamp(1px, 0.5vh, 10px);
+	transform: translate(-100%, 10%);
+}
+
+menu-sub-item {
+	margin-top: var(--pad1);
+	margin-left: var(--pad2);
+}
+
+menu-sub-item::before {
+	content: '';
+	display: inline-block;
+	background: var(--secondary);
+	height: clamp(12px, 2.75vh, 20px);
+	width: clamp(1px, 0.5vh, 10px);
+	transform: translate(-100%, 10%);
+}

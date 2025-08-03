@@ -1,0 +1,39 @@
+html[data-theme='dark'] button#dark-theme {
+	background: var(--primary);
+}
+
+html[data-theme='light'] button#light-theme {
+	background: var(--primary);
+}
+
+html[data-contrast='low'] button#low-contrast {
+	background: var(--primary);
+}
+
+html[data-contrast='normal'] button#normal-contrast {
+	background: var(--primary);
+}
+
+html[data-contrast='high'] button#high-contrast {
+	background: var(--primary);
+}
+
+html[lang='fi'] button#fi-language {
+	background: var(--primary);
+}
+
+html[lang='sv'] button#sv-language {
+	background: var(--primary);
+}
+
+html[lang='en'] button#en-language {
+	background: var(--primary);
+}
+
+html[data-view='interface'] a#interface menu-item {
+	font-weight: 500;
+}
+
+html[data-view='user'] a#user menu-item {
+	font-weight: 500;
+}

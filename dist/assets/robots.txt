@@ -1,0 +1,28 @@
+# robots.txt for https://vorte.app
+# Block all crawling by default
+User-agent: *
+Disallow: /
+
+# Allow Finnish paths
+Allow: /fi
+Allow: /fi/
+Allow: /fi/*
+
+# Allow Swedish paths
+Allow: /sv
+Allow: /sv/
+Allow: /sv/*
+
+# Allow English paths
+Allow: /en
+Allow: /en/
+Allow: /en/*
+
+# Allow images
+Allow: /favicon.ico
+Allow: /images
+Allow: /images/
+Allow: /images/*
+
+# Sitemap (helps crawlers discover allowed pages)
+Sitemap: https://vorte.app/sitemap.xml
