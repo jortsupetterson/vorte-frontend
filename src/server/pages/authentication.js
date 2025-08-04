@@ -1,6 +1,19 @@
 import serverSideRender from '../serverSideRender.js';
 import getPageResponseHeaders from '../../shared/utilities/getPageResponseHeaders.js';
 
+const stylesheets = `
+    <link rel="stylesheet" href="/styles/app/style.css">
+    <link id="authentication-styles" rel="stylesheet" href="/styles/authentication/style.css">
+  `;
+
+const headInjection = `
+		<link rel="preconnect" href="https://challenges.cloudflare.com" crossorigin />
+		<link rel="dns-prefetch" href="//challenges.cloudflare.com" />
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+	`;
+
+const events = `<script type="module" src="/scripts/events/authentication/handleEvents.js" defer></script>`;
+
 export const content = {
 	titles: {
 		sign_in: {
@@ -472,11 +485,6 @@ export async function renderAuthentication(lang, nonce, cookies, visibility = 'n
 		viewId = 'sign_up';
 	}
 
-	const stylesheets = `
-    <link rel="stylesheet" href="/styles/app/style.css">
-    <link id="authentication-styles" rel="stylesheet" href="/styles/authentication/style.css">
-  `;
-
 	const body = `
     <svg class="background" xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
       <g filter="url(#filter0_f_1056_109)">
@@ -493,12 +501,6 @@ export async function renderAuthentication(lang, nonce, cookies, visibility = 'n
     ${typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies, param) : ''}
   `;
 
-	const headInjection = `
-		<link rel="preconnect" href="https://challenges.cloudflare.com" crossorigin />
-		<link rel="dns-prefetch" href="//challenges.cloudflare.com" />
-		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-	`;
-	const events = `<script type="module" src="/scripts/events/authentication/handleEvents.js" defer></script>`;
 	const page = serverSideRender(
 		lang,
 		nonce,

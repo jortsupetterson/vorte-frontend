@@ -54,7 +54,7 @@ export async function getDecryptedCookie(blob, env) {
 	return new TextDecoder().decode(pt);
 }
 
-export async function getEncryptedCookie(name, value, env, ms) {
+export async function getEncryptedCookie(name, value, env, s) {
 	const key = await getCryptoKey(env);
 	const iv = crypto.getRandomValues(new Uint8Array(12));
 	const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(value));
@@ -64,8 +64,8 @@ export async function getEncryptedCookie(name, value, env, ms) {
 	const blob = `${ivB64}:${ctB64}`;
 
 	let cookie = `${name}=${blob}; HttpOnly; Secure; SameSite=Strict; Path=/;`;
-	if (typeof ms === 'number' && ms > 0) {
-		const maxAge = ms;
+	if (typeof s === 'number' && s > 0) {
+		const maxAge = s;
 		cookie += ` Max-Age=${maxAge};`;
 	}
 	return cookie;

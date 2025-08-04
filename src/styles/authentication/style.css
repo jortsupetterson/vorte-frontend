@@ -189,3 +189,11 @@ dialog input.digit {
 	text-align: center;
 	letter-spacing: 1vh;
 }
+
+dialog a h5 {
+	font-weight: 200;
+}
+
+dialog a h5:hover {
+	text-decoration: underline;
+}

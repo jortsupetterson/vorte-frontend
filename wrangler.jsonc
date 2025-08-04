@@ -20,7 +20,9 @@
 	"observability": {
 		"enabled": true
 	},
+
 	"placement": { "mode": "smart" },
+
 	"secrets_store_secrets": [
 		{
 			"binding": "COOKIES_ENC_KEY",
@@ -55,6 +57,11 @@
 		{
 			"binding": "TURNSTILE_SECRET",
 			"secret_name": "turnstile-secret",
+			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
+		},
+		{
+			"binding": "D1_API_KEY",
+			"secret_name": "d1-api-key",
 			"store_id": "44ad49dd09074b15a7db7007f7de65f6"
 		}
 	],

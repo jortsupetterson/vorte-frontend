@@ -99,10 +99,13 @@ export async function handleEvents() {
 						},
 						body: message,
 					});
-					const operationStatus = data.status;
+					const operationResult = await data.text();
+					console.log(operationResult);
+					console.log(data.status);
+					const viableCodes = new Set([201, 409, 400]);
+					const operationStatus = viableCodes.has(data.status) ? data.status : 400;
 					if (operationStatus === 201) {
 						cookies.HAS_ACCOUNT = 'true';
-						document.cookie = `HAS_SESSION=true; path=/; SameSite=Strict; secure; Max-Age=86400;`;
 					}
 					const dialogReady = new Promise((resolve) => {
 						document.getElementById('loader-text').textContent = {

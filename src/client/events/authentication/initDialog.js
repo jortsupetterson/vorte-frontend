@@ -66,6 +66,21 @@ export function initDialog(form, lang, btn) {
 		}[lang]
 	}
 </button>
+
+<a hreflang="${lang}"
+   id="sign_up"
+   href="${{ fi: '/fi/luo-käyttäjätili', sv: '/sv/skapa-konto', en: '/en/create-an-account' }[lang]}"
+   title="${{ fi: 'Yritä lähettää lomake uudelleen', sv: 'Försök skicka formuläret igen', en: 'Try resubmitting the form' }[lang]}">
+   <h5>
+  ${
+		{
+			fi: 'Etkö saanut sähköpostia? Lähetä lomake uudelleen.',
+			sv: 'Fick du inte e-post? Skicka formuläret igen.',
+			en: "Didn't receive the email? Resubmit the form.",
+		}[lang]
+	}
+	</h5>
+</a>
 `;
 				resolve();
 			} else {

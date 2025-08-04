@@ -139,16 +139,18 @@ The Vorte team
 				decryptedCookie[2] === verifier &&
 				decryptedCookie[1] === userInput.code
 			) {
-				const [kvRes, operationStatus] = await Promise.all([
+				const operation = await env.DATA_SERVICE.createDb(userInput.form, cookies);
+				const data = await JSON.parse(operation);
+				const [kvRes, authzCookie, headers] = await Promise.all([
 					env.AUTHN_SESSIONS_KV.delete(decryptedCookie[4]),
-					env.DATA_SERVICE.createDb(userInput.form,cookies),
+					getEncryptedCookie('AUTHORIZATION', data.result, env, 86400),
+					new Headers(),
 				]);
-
+				headers.append('Set-Cookie', 'AUTHN_VERIFIER=""; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0;');
+				headers.append('Set-Cookie', authzCookie);
 				return new Response(null, {
-					status: operationStatus,
-					headers: {
-						'Set-Cookie': 'AUTHN_VERIFIER=""; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0;',
-					},
+					status: data.status,
+					headers: headers,
 				});
 			}
 			await env.AUTHN_SESSIONS_KV.delete(decryptedCookie[4]);

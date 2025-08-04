@@ -120,7 +120,7 @@ export default {
 
 			const nonce = getNonce();
 			const isDemo = searchParams.has('demo');
-			const hasActiveSession = cookies.HAS_SESSION === 'true';
+			const hasActiveSession = cookies.AUTHORIZATION !== undefined;
 			const hasAnAccount = cookies.HAS_ACCOUNT === 'true';
 			const hasVisited = cookies.HAS_VISITED === 'true';
 
