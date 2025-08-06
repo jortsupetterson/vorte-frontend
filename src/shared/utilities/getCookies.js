@@ -30,6 +30,9 @@ async function getCryptoKey(env) {
 	if (!cryptoKeyPromise) {
 		const raw = await env.COOKIES_ENC_KEY.get();
 		const bytes = Uint8Array.from(atob(raw), (c) => c.charCodeAt(0));
+		if (bytes.length !== 32) {
+			throw new Error(`Invalid key length ${bytes.length * 8} bits — required 256 bits`);
+		}
 		cryptoKeyPromise = crypto.subtle.importKey('raw', bytes, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']);
 	}
 	return cryptoKeyPromise;

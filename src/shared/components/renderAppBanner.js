@@ -71,18 +71,22 @@ export default function renderAppBanner(lang, titles, cookies) {
 				}[lang]
 			}"
     >
-      <menu-item>${
-				{
-					fi: 'Ohjauspaneeli',
-					sv: 'Instrumentpanel',
-					en: 'Dashboard',
-				}[lang]
-			}</menu-item>
+      <menu-item>
+	  ${
+			{
+				fi: 'Ohjauspaneeli',
+				sv: 'Instrumentpanel',
+				en: 'Dashboard',
+			}[lang]
+		}
+			</menu-item>
     </a>
 
     <details>
       <summary>
-        <menu-item>${{ fi: 'Sovellukset', sv: 'Appar', en: 'Apps' }[lang]}</menu-item>
+        <menu-item>
+		${{ fi: 'Sovellukset', sv: 'Appar', en: 'Apps' }[lang]}
+		</menu-item>
       </summary>
 
       <ul>
@@ -98,13 +102,15 @@ export default function renderAppBanner(lang, titles, cookies) {
 							}[lang]
 						}"
           >
-            <menu-sub-item>${
-							{
-								fi: 'Polku yrittäjäksi',
-								sv: 'Vägen till företagande',
-								en: 'Road to Entrepreneurship',
-							}[lang]
-						}</menu-sub-item>
+            <menu-sub-item>
+			${
+				{
+					fi: 'Polku yrittäjäksi',
+					sv: 'Vägen till företagande',
+					en: 'Road to Entrepreneurship',
+				}[lang]
+			}
+			</menu-sub-item>
           </a>
         </li>
 
@@ -120,13 +126,15 @@ export default function renderAppBanner(lang, titles, cookies) {
 							}[lang]
 						}"
           >
-            <menu-sub-item>${
-							{
-								fi: 'Tulossa pian...',
-								sv: 'Kommer snart...',
-								en: 'Coming soon...',
-							}[lang]
-						}</menu-sub-item>
+            <menu-sub-item>
+			${
+				{
+					fi: 'Tulossa pian...',
+					sv: 'Kommer snart...',
+					en: 'Coming soon...',
+				}[lang]
+			}
+			</menu-sub-item>
           </a>
         </li>
       </ul>
@@ -145,13 +153,15 @@ export default function renderAppBanner(lang, titles, cookies) {
 				}[lang]
 			}"
     >
-      <menu-item>${
-				{
-					fi: 'Tulossa pian...',
-					sv: 'Kommer snart...',
-					en: 'Coming soon...',
-				}[lang]
-			}</menu-item>
+      <menu-item>
+	  ${
+			{
+				fi: 'Tulossa pian...',
+				sv: 'Kommer snart...',
+				en: 'Coming soon...',
+			}[lang]
+		}
+			</menu-item>
     </a>
   </nav-dropdown>
 
@@ -181,13 +191,15 @@ export default function renderAppBanner(lang, titles, cookies) {
 				}[lang]
 			}"
     >
-      <menu-item>${
-				{
-					fi: 'Omat asetukset',
-					sv: 'Mina inställningar',
-					en: 'My settings',
-				}[lang]
-			}</menu-item>
+      <menu-item>
+	  ${
+			{
+				fi: 'Omat asetukset',
+				sv: 'Mina inställningar',
+				en: 'My settings',
+			}[lang]
+		}
+			</menu-item>
     </a>
 
     <a
@@ -207,13 +219,15 @@ export default function renderAppBanner(lang, titles, cookies) {
 				}[lang]
 			}"
     >
-      <menu-item>${
-				{
-					fi: 'Kirjaudu ulos',
-					sv: 'Logga ut',
-					en: 'Sign out',
-				}[lang]
-			}</menu-item>
+      <menu-item>
+	  ${
+			{
+				fi: 'Kirjaudu ulos',
+				sv: 'Logga ut',
+				en: 'Sign out',
+			}[lang]
+		}
+			</menu-item>
     </a>
   </profile-dropdown>
 </banner>

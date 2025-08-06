@@ -33,7 +33,6 @@ export default async function buildEdgeRuntime(entry = './src/server/serverSideR
 		splitting: true,
 		treeShaking: true,
 		outdir: outDir,
-		logLevel: 'info',
 		keepNames: true,
 		external: ['cloudflare:workers'],
 		legalComments: 'none',

@@ -220,7 +220,7 @@ export const content = {
 						}[lang]
 					}" 
 					type="color" 
-					value="${cookies['primary'] || '#199473'}" 
+					value="${cookies['primary'] || '#0B4F60'}" 
 					id="primary" 
 					/>
 					<input 
@@ -232,7 +232,7 @@ export const content = {
 						}[lang]
 					}"
 					type="color"
-					value="${cookies['secondary'] || '#0B4F60'}" 
+					value="${cookies['secondary'] || '#199473'}" 
 					id="secondary" />
 					<input 
 					title="${
@@ -243,7 +243,7 @@ export const content = {
 						}[lang]
 					}"
 					type="color" 
-					value="${cookies['primary_ghost'] || '#199473'}" 
+					value="${cookies['primary_ghost'] || '#0B4F60'}" 
 					id="primary_ghost" 
 					class="ghost" />
 					<input
@@ -255,7 +255,7 @@ export const content = {
 						}[lang]
 					}"
 					type="color" 
-					value="${cookies['secondary_ghost'] || '#0B4F60'}" 
+					value="${cookies['secondary_ghost'] || '#199473'}" 
 					id="secondary_ghost" 
 					class="ghost" />
 				</div>
@@ -318,7 +318,7 @@ export const content = {
 			return `
 		<button
 			id="delete-account"
-			class="action view-header-button"
+			class="function view-header-button"
 			title="${
 				{
 					fi: 'Poista käyttäjätunnuksesi pysyvästi',
@@ -329,9 +329,9 @@ export const content = {
 			>
 			${
 				{
-					fi: 'POISTA',
-					sv: 'RADERA',
-					en: 'DELETE',
+					fi: 'poista',
+					sv: 'radera',
+					en: 'delete',
 				}[lang]
 			}
 			</button>
@@ -342,7 +342,7 @@ export const content = {
 			return `
 		<button
 		id="reset-styles"
-		class="action view-header-button"
+		class="function view-header-button"
 		title="${
 			{
 				fi: 'Ota oletus tyylit käyttöön',
@@ -353,9 +353,9 @@ export const content = {
 		>
 			${
 				{
-					fi: 'NOLLAA',
-					sv: 'ÅTERSTÄLLA',
-					en: 'RESET',
+					fi: 'nollaa',
+					sv: 'återställa',
+					en: 'reset',
 				}[lang]
 			}
 		</button>

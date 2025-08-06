@@ -1,1 +1,1 @@
-import{a as n}from"../../chunk-EI7MMDWY.js";function e(){}n(e,"handleEvents");export{e as handleEvents};
+import{a as e}from"../../chunk-EI7MMDWY.js";async function n(){let[]=Promise.all()}e(n,"handleEvents");document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n();export{n as handleEvents};

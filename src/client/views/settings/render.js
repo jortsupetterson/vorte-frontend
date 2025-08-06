@@ -49,14 +49,14 @@ function render(lang) {
 		} else {
 			headerViewBtn.textContent = {
 				user: {
-					fi: 'POISTA',
-					sv: 'RADERA',
-					en: 'DELETE',
+					fi: 'poista',
+					sv: 'radera',
+					en: 'delete',
 				}[lang],
 				interface: {
-					fi: 'NOLLAA',
-					sv: 'ÅTERSTÄLLA',
-					en: 'RESET',
+					fi: 'nollaa',
+					sv: 'återställa',
+					en: 'reset',
 				}[lang],
 			}[viewId];
 			headerViewBtn.setAttribute(

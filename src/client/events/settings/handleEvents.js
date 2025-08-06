@@ -1,4 +1,3 @@
-import getConfirmationFromUser from '../../../shared/utilities/getConfimationFromUser.js';
 import { state } from '../../modules/state.js';
 
 const langArr = ['fi', 'sv', 'en'];
@@ -7,7 +6,7 @@ const contrastArr = ['low', 'normal', 'high'];
 const accentArr = ['primary', 'secondary', 'primary_ghost', 'seconday_ghost'];
 sessionStorage.setItem('start-lang', document.documentElement.getAttribute('lang'));
 
-export function handleEvents() {
+export async function handleEvents() {
 	if (document.documentElement.getAttribute('data-view') === 'interface') {
 		const themeMeta = document.getElementById('theme-color-meta');
 		langArr.forEach((lang) => {
@@ -89,7 +88,6 @@ export function handleEvents() {
 		const resetBtn = document.getElementById('reset-styles');
 		if (!resetBtn) return;
 		resetBtn.addEventListener('click', async () => {
-			const confirmed = await getConfirmationFromUser(state.lang);
 			if (!confirmed) return;
 
 			document.documentElement.setAttribute('data-theme', 'dark');
@@ -107,4 +105,8 @@ export function handleEvents() {
 		});
 	}
 }
-handleEvents();
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', handleEvents);
+} else {
+	handleEvents();
+}

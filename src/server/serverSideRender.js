@@ -15,7 +15,8 @@ export default function serverSideRender(
 	body,
 	events,
 	viewId,
-	headInjection = ''
+	headInjection = '',
+	profile
 ) {
 	return `
     <!doctype html>
@@ -57,6 +58,8 @@ export default function serverSideRender(
         }
     </style>
     ${stylesheets}
+    <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin />
+	<link rel="dns-prefetch" href="//static.cloudflareinsights.com" />
     ${headInjection}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes" />

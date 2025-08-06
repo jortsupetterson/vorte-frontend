@@ -3,6 +3,22 @@ import getPageResponseHeaders from '../../shared/utilities/getPageResponseHeader
 import renderAppBanner from '../../shared/components/renderAppBanner.js';
 import renderAppView from '../../shared/components/renderAppView.js';
 import renderAppSidebar from '../../shared/components/renderAppsidebar.js';
+import { getDecryptedCookie } from '../../shared/utilities/getCookies.js';
+
+export function normalizeProfile(resp) {
+	const raw = JSON.parse(resp);
+	const row = raw?.result?.[0]?.results?.[0];
+	if (!row) throw new Error('no rows');
+
+	const widgets = row.widgets_list ? JSON.parse(row.widgets_list) : [];
+	const themes = row.themes_obj ? JSON.parse(row.themes_obj) : {};
+
+	return {
+		...row,
+		widgets_list: widgets,
+		themes_obj: themes,
+	};
+}
 
 export const content = {
 	titles: {
@@ -67,6 +83,29 @@ export const content = {
 		},
 	],
 	viewHeadlines: { fi: 'TÄRKEIMMÄT', sv: 'HÖJDPUNKTER', en: 'HIGHLIGHTS' },
+	viewHeaderButton: (lang) => {
+		return `
+<button
+  id="add-widget"
+  class="function view-header-button"
+  title="${
+		{
+			fi: 'Lisää tilasto tai pikalinkki',
+			sv: 'Lägg till en spårare eller snabblänk',
+			en: 'Add a tracker or quicklink',
+		}[lang]
+	}"
+>
+  ${
+		{
+			fi: 'lisää widget',
+			sv: 'lägg till widget',
+			en: 'add a widget',
+		}[lang]
+	}
+</button>
+			`;
+	},
 };
 
 export async function renderDashboard(lang, nonce, cookies, visibility = 'noindex', route, env) {
@@ -79,7 +118,7 @@ export async function renderDashboard(lang, nonce, cookies, visibility = 'noinde
 	const body = `
         ${renderAppBanner(lang, content.titles, cookies)}
 		${renderAppSidebar(lang, content.sidebarHeadlines, content.sidebarList)}
-        ${renderAppView(lang, content.viewHeadlines)}
+        ${renderAppView(lang, content.viewHeadlines, '', content.viewHeaderButton(lang))}
     `;
 	const events = ''; //`<script type="module" src="/scripts/events/handleDashboardEvents.js" defer></script>`;
 	const page = serverSideRender(

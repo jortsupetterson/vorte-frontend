@@ -29,12 +29,10 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-	const { request } = event;
-	const url = new URL(request.url);
-
+	//const { request } = event;
+	//const url = new URL(request.url);
 	// palveluiden cache
-	handleServicesCache(event, request, url, SERVICES_CACHE);
-
+	//handleServicesCache(event, request, url, SERVICES_CACHE);
 	// assetien cache
 	//handleAssetsCache(event, request, url, ASSETS_CACHE);
 });

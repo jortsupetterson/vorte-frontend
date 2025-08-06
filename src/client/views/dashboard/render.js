@@ -24,7 +24,9 @@ function render(lang) {
           hreflang="${lang}"
           title="${listItem.title[lang]}"
         >
-          <menu-item>${listItem.text[lang]}</menu-item>
+          <menu-item>
+		  ${listItem.text[lang]}
+		  </menu-item>
         </a>
         </li>
         `;
@@ -37,8 +39,27 @@ function render(lang) {
 		app.view.header.headline.textContent = content.viewHeadlines[lang];
 
 		const headerViewBtn = document.body.querySelector('view header button');
-		if (headerViewBtn) {
-			headerViewBtn.remove();
+		if (!headerViewBtn) {
+			app.view.header.self.insertAdjacentHTML(
+				'beforeend',
+				typeof content.viewHeaderButton === 'function' ? content.viewHeaderButton(lang) : ''
+			);
+		} else {
+			headerViewBtn.textContent = {
+				fi: 'lisää widget',
+				sv: 'lägg till widget',
+				en: 'add a widget',
+			}[lang];
+			headerViewBtn.setAttribute(
+				'title',
+				`${
+					{
+						fi: 'Lisää tilasto tai pikalinkki',
+						sv: 'Lägg till en spårare eller snabblänk',
+						en: 'Add a tracker or quicklink',
+					}[lang]
+				}`
+			);
 		}
 
 		app.view.main.innerHTML = '';

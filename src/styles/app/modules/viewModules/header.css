@@ -13,12 +13,13 @@ view header {
 h2 {
 	font-family: 'Poppins';
 	text-align: center;
-	font-size: 2.75vh;
+	font-size: 2.5vh;
 	font-weight: 400;
 	max-width: 50%;
 }
 
 .view-header-button {
 	position: absolute;
-	right: 2.5%;
+	top: var(--pad1);
+	right: var(--pad1);
 }
