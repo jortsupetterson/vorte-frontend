@@ -30,6 +30,7 @@ export default function serverSideRender(
 
     <head>
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
     <meta
     id="theme-color-meta"
     name="theme-color"

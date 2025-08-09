@@ -23,3 +23,6 @@
 
 #/scripts/*
   #Cache-Control: public, max-age=60, s-maxage=300, stale-while-revalidate=30
+
+  /scripts/workers/*
+  Cross-Origin-Embedder-Policy: require-corp

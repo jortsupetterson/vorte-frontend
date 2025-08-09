@@ -76,11 +76,11 @@ export const content = {
 
     <label for="email">${{ fi: 'Sähköposti*', sv: 'E-mail*', en: 'Email*' }[lang]}</label>
     <input
-      id="email"
+	  id="email-input"
       type="email"
       name="email"
       required
-      autocomplete
+      autocomplete="email"
       pattern="^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,}$"
       placeholder="${{ fi: 'botti.example@mail.com', sv: 'bot.example@mail.com', en: 'bot.example@mail.com' }[lang]}"
       title="${
@@ -101,8 +101,9 @@ export const content = {
 		}</h5>
     <div class="row transparent">
       <button
+	    data-method="otc"
+	    data-provider="email"
         class="loginmethod function"
-        id="magic_link"
         title="${
 					{
 						fi: 'Lähettää kertakäyttöisen linkin sähköpostiin, jota klikkaamalla kirjaudut sisään',
@@ -126,8 +127,9 @@ export const content = {
 				}
       </button>
       <button
+	  	data-method="web_authn"
+	    data-provider="passkey"
         class="loginmethod function"
-        id="passkey"
         title="${{ fi: 'Kirjaudu salasanattomasti', sv: 'Logga in utan lösenord', en: 'Log in without a password' }[lang]}"
       >
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com -->
@@ -163,8 +165,9 @@ export const content = {
     <h4>${{ fi: 'Muut kirjautumistavat', sv: 'Andra sätt', en: 'Other methods' }[lang]}</h4>
     <div class="row transparent">
       <button
+	  	data-method="social"
+	    data-provider="google"
         class="loginmethod function"
-        id="google"
         title="${{ fi: 'Kirjaudu Google-tunnuksilla', sv: 'Logga in med Google', en: 'Sign in with Google' }[lang]}"
       >
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com -->
@@ -176,8 +179,9 @@ export const content = {
         Google
       </button>
       <button
+	  	data-method="social"
+	    data-provider="microsoft"
         class="loginmethod function"
-        id="microsoft"
         title="${{ fi: 'Kirjaudu Microsoft-tunnuksilla', sv: 'Logga in med Microsoft', en: 'Sign in with Microsoft' }[lang]}"
       >
         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com -->
@@ -264,7 +268,7 @@ export const content = {
         name="lastname"
         required
         aria-required="true"
-        autocomplete="family-name"
+        autocomplete="n-name"
  pattern="^[A-Z\u00C0-\u00D6\u00D8-\u00DE][a-z\u00E0-\u00F6\u00F8-\u00FF]+(?:[\u0020\u002D'][A-Z\u00C0-\u00D6\u00D8-\u00DE][a-z\u00E0-\u00F6\u00F8-\u00FF]+)*$"        placeholder="Example"
         title="${
 					{

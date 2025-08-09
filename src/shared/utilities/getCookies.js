@@ -66,7 +66,7 @@ export async function getEncryptedCookie(name, value, env, s) {
 	const ctB64 = btoa(String.fromCharCode(...new Uint8Array(ct)));
 	const blob = `${ivB64}:${ctB64}`;
 
-	let cookie = `${name}=${blob}; HttpOnly; Secure; SameSite=Strict; Path=/;`;
+	let cookie = `${name}=${blob}; HttpOnly; Secure; SameSite=Lax; Path=/;`;
 	if (typeof s === 'number' && s > 0) {
 		const maxAge = s;
 		cookie += ` Max-Age=${maxAge};`;

@@ -2,10 +2,10 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"account_id": "e8ef5da3c57b544081f2e4181d6cecc9",
 	"name": "frontend-v0",
-	"main": "./dist/worker/serverSideRouter.js",
+	"main": "./src/server/serverSideRouter.js",
 	"compatibility_date": "2025-08-05",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-	"minify": true,
+	"minify": false,
 	"dev": {
 		"local_protocol": "https"
 	},
@@ -59,14 +59,19 @@
 	],
 	"services": [
 		{
-			"binding": "AUTHENTICATION_SERVICE",
+			"binding": "AUTHN_SERVICE",
 			"service": "authentication-service-v0",
-			"entrypoint": "VorteDataService"
+			"entrypoint": "VorteAuthenticationService"
 		},
 		{
 			"binding": "DATA_SERVICE",
 			"service": "data-service-v0",
 			"entrypoint": "VorteDataService"
+		},
+		{
+			"binding": "CRYPTO_SERVICE",
+			"service": "crypto-service-v0",
+			"entrypoint": "VorteCryptoService"
 		}
 	]
 }

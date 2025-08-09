@@ -197,3 +197,11 @@ dialog a h5 {
 dialog a h5:hover {
 	text-decoration: underline;
 }
+
+#turnstile-container {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}

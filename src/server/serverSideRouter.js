@@ -1,6 +1,5 @@
 import { getCookies, getDecryptedCookie } from '../shared/utilities/getCookies.js';
 import routeDefinitions from './routeDefinitions.js';
-import getNonce from '../shared/utilities/getNonce.js';
 
 /** @module serverSideRouter
  *  Ultra-low-latency router for Cloudflare Workers.
@@ -73,10 +72,9 @@ export default {
 			// In memory cookie lookup object for entire worker lifespan
 			const cookies = getCookies(request.headers.get('cookie') || '');
 
-			const [lang, ip, jwt] = await Promise.all([
+			const [lang, ip] = await Promise.all([
 				SUPPORTED_LANGUAGES.has(first) ? first : negotiateLANGUAGE(request.headers.get('Accept-Language'), cookies),
 				request.headers.get('cf-connecting-ip'),
-				getJWT(cookies.JWT),
 			]);
 
 			const [fallbackReady, isBanned] = await Promise.all([ensureFallbackCached(lang), env.BANNED_IPS_KV.get(ip)]);
@@ -95,7 +93,7 @@ export default {
 					return cached ?? BAN_RESPONSE(lang);
 				}
 				const { initializeServices } = await import('./services/initializeServices.js');
-				return await initializeServices(request, env, ctx, lang, cookies, segments, searchParams);
+				return await initializeServices(env, lang, cookies, segments, searchParams);
 			}
 
 			const pathSegments = SUPPORTED_LANGUAGES.has(first) ? rest : segments;
@@ -103,7 +101,7 @@ export default {
 			const lastSegment = decodeURIComponent(pathSegments.at(-1) || 'dashboard');
 			const key =
 				(searchParams.has('demo') && handlerMap.has(lastSegment) && lastSegment) ||
-				((await env.IDENTIFIERS_KV.get(jwt.uuid)) === jwt.nonce && handlerMap.has(lastSegment) && lastSegment) ||
+				(cookies.AUTHORIZATION !== undefined && handlerMap.has(lastSegment) && lastSegment) ||
 				(cookies.HAS_ACCOUNT === 'true' && 'sign-in') ||
 				(cookies.HAS_VISITED === 'true' && 'create-an-account') ||
 				'landing';
@@ -111,13 +109,13 @@ export default {
 			const route = key;
 
 			// Looks up handler O(1)
-			const routeHandler = handlerMap.get(route);
+			const [routeHandler, nonce] = await Promise.all([handlerMap.get(route), env.CRYPTO_SERVICE.getNonce()]);
 
 			if (!routeHandler) {
 				return Response.redirect('https://why.vorte.app/page-list', 302);
 			}
 
-			return await routeHandler(lang, getNonce(), cookies, route, env, searchParams);
+			return await routeHandler(lang, nonce, cookies, route, env, searchParams);
 		} catch (error) {
 			console.error(error);
 			const errorPage = error;
