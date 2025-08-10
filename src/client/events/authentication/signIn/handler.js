@@ -17,8 +17,9 @@ export async function signInHandler(widgetId) {
 
 		let url = `/services/authn/sign_in/init/${method}/${provider}?token=${token}`;
 
-		if (method === 'social' && socials.has(provider)) window.location.href = url;
-
-		fetch(url);
+		if (method === 'social' && socials.has(provider)) {
+			window.location.href = url;
+			return;
+		}
 	});
 }
