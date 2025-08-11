@@ -65,7 +65,6 @@ export async function signUpHandler(widgetId) {
 					method: 'post',
 					headers: {
 						'content-type': 'application/json',
-						action: 'callback',
 					},
 					body: message,
 				});
