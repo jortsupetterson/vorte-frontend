@@ -93,7 +93,7 @@ export default {
 					return cached ?? BAN_RESPONSE(lang);
 				}
 				const { initializeServices } = await import('./services/initializeServices.js');
-				return await initializeServices(env, lang, cookies, segments, searchParams);
+				return await initializeServices(env, lang, cookies, segments, searchParams, request.json());
 			}
 
 			const pathSegments = SUPPORTED_LANGUAGES.has(first) ? rest : segments;

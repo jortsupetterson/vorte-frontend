@@ -15,7 +15,6 @@ export async function signUpHandler(widgetId) {
 		}
 
 		const form = {
-			turnstileToken: token,
 			firstname: document.getElementById('firstname').value,
 			lastname: document.getElementById('lastname').value,
 			email: document.getElementById('email').value,
@@ -41,7 +40,7 @@ export async function signUpHandler(widgetId) {
 		}
 		if (!allValid) return;
 
-		await initDialog(form, lang, btn);
+		await initDialog(form, lang, btn, token);
 
 		const confirmationBtn = document.getElementById('send-confirmation');
 		confirmationBtn.addEventListener('click', async () => {
@@ -62,7 +61,7 @@ export async function signUpHandler(widgetId) {
     </div>
     </div>
 `;
-				const data = await fetch('/authn/sign_up', {
+				const data = await fetch('/services/authn/sign_up/callback', {
 					method: 'post',
 					headers: {
 						'content-type': 'application/json',

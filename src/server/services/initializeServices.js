@@ -1,5 +1,3 @@
-import { getDecryptedCookie } from '../../shared/utilities/getCookies.js';
-
 const authnHandlerMap = {
 	sign_in: {
 		init: async (env, lang, cookies, segments) => {
@@ -16,19 +14,20 @@ const authnHandlerMap = {
 		},
 	},
 	sign_up: {
-		init: async (env, lang, cookies, segments) => {
-			return await env.AUTHN_SERVICE.signUpInitialization(lang, cookies, segments);
+		init: async (env, lang, cookies, segments, searchParams, messageBody) => {
+			return await env.AUTHN_SERVICE.signUpInitialization(lang, await messageBody);
 		},
-		callback: async (env, lang, cookies, segments) => {
-			return await env.AUTHN_SERVICE.signUpCallback(lang, cookies, segments);
+		callback: async (env, lang, cookies, segments, searchParams, messageBody) => {
+			return await env.AUTHN_SERVICE.signUpCallback(lang, cookies, await messageBody);
 		},
 	},
 };
 
 const handlerMap = {};
 
-export async function initializeServices(env, lang, cookies, segments, searchParams) {
+export async function initializeServices(env, lang, cookies, segments, searchParams, messageBody) {
 	if (segments[1] === 'authn') {
+		//SIGN_IN_INITIALIZATION
 		if (segments[3] === 'init') {
 			const [turnstileToken, turnstileSecret] = await Promise.all([searchParams.get('token'), env.TURNSTILE_SECRET.get()]);
 
@@ -50,7 +49,7 @@ export async function initializeServices(env, lang, cookies, segments, searchPar
 			const verification = await cfRes.json();
 
 			if (!verification)
-				return new Response(null, {
+				return new Response('LOL', {
 					status: 400,
 					headers: {
 						'Set-Cookie': 'AUTHN_CHALLENGE=""; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0;',
@@ -58,7 +57,7 @@ export async function initializeServices(env, lang, cookies, segments, searchPar
 				});
 		}
 		const handler = await authnHandlerMap[segments[2]][segments[3]];
-		const response = await handler(env, lang, cookies, segments, searchParams);
+		const response = await handler(env, lang, cookies, segments, searchParams, messageBody);
 		return new Response(response.body, {
 			status: response.status,
 			headers: response.headers,

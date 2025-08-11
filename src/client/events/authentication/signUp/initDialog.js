@@ -1,4 +1,4 @@
-export function initDialog(form, lang, btn) {
+export function initDialog(form, lang, btn, token) {
 	return new Promise(async (resolve) => {
 		const dialog = document.createElement('dialog');
 		dialog.innerHTML = `
@@ -13,18 +13,16 @@ export function initDialog(form, lang, btn) {
 `;
 		document.body.appendChild(dialog);
 		dialog.show();
-		const message = JSON.stringify(form);
 
 		try {
 			btn.disabled = true;
 
-			const response = await fetch('/authn/sign_up', {
-				method: 'post',
+			const response = await fetch(`/services/authn/sign_up/init?token=${token}`, {
+				method: 'POST',
 				headers: {
 					'content-type': 'application/json',
-					action: 'initialize',
 				},
-				body: message,
+				body: JSON.stringify(form),
 			});
 
 			if (response.status === 202) {
