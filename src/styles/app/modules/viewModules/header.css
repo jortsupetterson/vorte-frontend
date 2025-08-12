@@ -2,7 +2,7 @@ view header {
 	position: sticky;
 	top: -1%;
 	min-width: 100%;
-	min-height: 12%;
+	min-height: 10%;
 	background: var(--solid-ghost1);
 	display: flex;
 	justify-content: center;
@@ -16,10 +16,4 @@ h2 {
 	font-size: 2.5vh;
 	font-weight: 400;
 	max-width: 50%;
-}
-
-.view-header-button {
-	position: absolute;
-	top: var(--pad1);
-	right: var(--pad1);
 }

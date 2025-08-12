@@ -1,3 +1,5 @@
+import { EarlyOffscreenPromise } from '../classes/EarlyOffscreenPromise';
+
 //src/client/modules/interceptLinks.js
 
 /**
@@ -21,7 +23,7 @@
  |       
  */
 
-const SIGN_OUT = new Set(['https://vorte.app/fi/kirjaudu-ulos', 'https://vorte.app/sv/logga-ut', 'https://vorte.app/en/sign-out']);
+const staticViews = new Set(['sign_in', 'sign_up']);
 
 export default function interceptLinks({ onNavigate, shouldHandle }) {
 	// a filter to parse a elements for the ones to intercept
@@ -43,11 +45,13 @@ export default function interceptLinks({ onNavigate, shouldHandle }) {
 
 		//Prevents typical link behavior ("Intercepts a link for client side routing")
 		e.preventDefault();
+
+		const contentPromise = !staticViews.has(anchor.id) ? new EarlyOffscreenPromise(anchor.id) : '';
 		document.documentElement.setAttribute('data-view', anchor.id);
 		const path = anchor.pathname;
 		const params = Object.fromEntries(new URLSearchParams(anchor.search).entries());
 		history.pushState(null, ',path + anchor.search + anchor.hash');
-		onNavigate(path, params);
+		onNavigate(path, params, contentPromise);
 	}
 
 	function handlePop() {

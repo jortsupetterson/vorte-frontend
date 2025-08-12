@@ -3,22 +3,6 @@ import getPageResponseHeaders from '../../shared/utilities/getPageResponseHeader
 import renderAppBanner from '../../shared/components/renderAppBanner.js';
 import renderAppView from '../../shared/components/renderAppView.js';
 import renderAppSidebar from '../../shared/components/renderAppsidebar.js';
-import { getDecryptedCookie } from '../../shared/utilities/getCookies.js';
-
-export function normalizeProfile(resp) {
-	const raw = JSON.parse(resp);
-	const row = raw?.result?.[0]?.results?.[0];
-	if (!row) throw new Error('no rows');
-
-	const widgets = row.widgets_list ? JSON.parse(row.widgets_list) : [];
-	const themes = row.themes_obj ? JSON.parse(row.themes_obj) : {};
-
-	return {
-		...row,
-		widgets_list: widgets,
-		themes_obj: themes,
-	};
-}
 
 export const content = {
 	titles: {
@@ -48,19 +32,55 @@ export const content = {
 		{
 			id: 'road-to-entrepreneurship',
 			href: {
-				fi: '/fi/polku-yrittajaksi',
+				fi: '/fi/polku-yrittäjäksi',
 				sv: '/sv/vagen-till-foretagande',
 				en: '/en/road-to-entrepreneurship',
 			},
 			title: {
-				fi: 'Siirry Polku yrittäjäksi -sovellukseen',
-				sv: 'Navigera till Vägen till företagande-applikationen',
-				en: 'Go to Road to Entrepreneurship app',
+				fi: 'Avaa Polku yrittäjäksi -sovellus',
+				sv: 'Öppna applikationen Vägen till företagande',
+				en: 'Open the Road to Entrepreneurship application',
 			},
 			text: {
 				fi: 'Polku yrittäjäksi',
 				sv: 'Vägen till företagande',
 				en: 'Road to Entrepreneurship',
+			},
+		},
+		{
+			id: 'todo',
+			href: {
+				fi: '/fi/tehtavalista',
+				sv: '/sv/att-gora-lista',
+				en: '/en/todo-list',
+			},
+			title: {
+				fi: 'Avaa Tehtävälista-sovellus',
+				sv: 'Öppna applikationen Att göra-lista',
+				en: 'Open the To-Do List application',
+			},
+			text: {
+				fi: 'Tehtävälista',
+				sv: 'Att göra-lista',
+				en: 'To-Do List',
+			},
+		},
+		{
+			id: 'calendar',
+			href: {
+				fi: '/fi/kalenteri',
+				sv: '/sv/kalender',
+				en: '/en/calendar',
+			},
+			title: {
+				fi: 'Avaa Kalenteri-sovellus',
+				sv: 'Öppna applikationen Kalender',
+				en: 'Open the Calendar application',
+			},
+			text: {
+				fi: 'Kalenteri',
+				sv: 'Kalender',
+				en: 'Calendar',
 			},
 		},
 		{
@@ -83,11 +103,11 @@ export const content = {
 		},
 	],
 	viewHeadlines: { fi: 'TÄRKEIMMÄT', sv: 'HÖJDPUNKTER', en: 'HIGHLIGHTS' },
-	viewHeaderButton: (lang) => {
+	footerButtons: (lang) => {
 		return `
 <button
   id="add-widget"
-  class="function view-header-button"
+  class="function"
   title="${
 		{
 			fi: 'Lisää tilasto tai pikalinkki',
@@ -108,7 +128,7 @@ export const content = {
 	},
 };
 
-export async function renderDashboard(lang, nonce, cookies, visibility = 'noindex', route, env) {
+export async function renderDashboard(lang, nonce, cookies, visibility = 'noindex', route, env, viewContent) {
 	//Always include a top level style sheet based on if its a Sales or Application page as well as a view specific stylesheet
 	const stylesheets = `
     <link rel="stylesheet" href="/styles/app/style.css">
@@ -116,12 +136,13 @@ export async function renderDashboard(lang, nonce, cookies, visibility = 'noinde
     `;
 
 	const body = `
-        ${renderAppBanner(lang, content.titles, cookies)}
-		${renderAppSidebar(lang, content.sidebarHeadlines, content.sidebarList)}
-        ${renderAppView(lang, content.viewHeadlines, '', content.viewHeaderButton(lang))}
-    `;
-	const events = ''; //`<script type="module" src="/scripts/events/handleDashboardEvents.js" defer></script>`;
-	const page = serverSideRender(
+  ${renderAppBanner(lang, content.titles, cookies)}
+  ${renderAppSidebar(lang, content.sidebarHeadlines, content.sidebarList)}
+  ${await renderAppView(lang, 'dashboard', content.viewHeadlines, viewContent, content.footerButtons(lang))}
+`;
+
+	const events = `<script type="module" src="/scripts/events/dashboard/handleEvents.js" defer></script>`;
+	const page = await serverSideRender(
 		lang,
 		nonce,
 		cookies,

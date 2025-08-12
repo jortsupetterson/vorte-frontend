@@ -36,6 +36,7 @@ profile-dropdown.toggled {
 	padding: var(--pad3);
 	gap: var(--pad3);
 	z-index: 1;
+	box-shadow: 0 1px 2px var(--bg);
 }
 
 nav-button::before,

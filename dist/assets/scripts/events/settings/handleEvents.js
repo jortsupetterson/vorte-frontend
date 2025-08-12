@@ -1,1 +1,113 @@
-import{a as c}from"../../chunk-LV45BB74.js";import{a}from"../../chunk-EI7MMDWY.js";var i=["fi","sv","en"],l=["dark","light"],u=["low","normal","high"],m=["primary","secondary","primary_ghost","seconday_ghost"];sessionStorage.setItem("start-lang",document.documentElement.getAttribute("lang"));async function d(){if(document.documentElement.getAttribute("data-view")==="interface"){let r=document.getElementById("theme-color-meta");i.forEach(t=>{let e=document.getElementById(`${t}-language`);e&&e.addEventListener("click",()=>{document.documentElement.setAttribute("lang",t),globalThis.cookies.lang=t;let o={fi:"/omat-asetukset/k\xE4ytt\xF6liittym\xE4",sv:"/mina-inst\xE4llningar/gr\xE4ns-snittet",en:"/my-settings/interface"}[t],n=`/${t}${o}`;history.pushState(null,"",n)})}),l.forEach(t=>{let e=document.getElementById(`${t}-theme`);e&&e.addEventListener("click",()=>{document.documentElement.setAttribute("data-theme",t),r.setAttribute("content",{dark:{low:"#202020",normal:"#000000",high:"#000000"},light:{low:"#dfdfdf",normal:"#ffffff",high:"#ffffff"}}[t][cookies.contrast||"normal"]),globalThis.cookies.theme=t})}),u.forEach(t=>{let e=document.getElementById(`${t}-contrast`);e&&e.addEventListener("click",()=>{document.documentElement.setAttribute("data-contrast",t),r.setAttribute("content",{dark:{low:"#202020",normal:"#000000",high:"#000000"},light:{low:"#dfdfdf",normal:"#ffffff",high:"#ffffff"}}[cookies.theme||"dark"][t]),globalThis.cookies.contrast=t})}),m.forEach(t=>{let e=document.getElementById(`${t}`);e&&e.addEventListener("input",o=>{let n=o.target.value;document.documentElement.style.setProperty(`--${t}`,n),globalThis.cookies[t]=n})});let s=document.getElementById("reset-styles");if(!s)return;s.addEventListener("click",async()=>{if(!confirmed)return;document.documentElement.setAttribute("data-theme","dark"),document.documentElement.setAttribute("data-contrast","normal"),document.documentElement.setAttribute("lang",sessionStorage.getItem("start-lang")||c.lang),document.documentElement.style.setProperty("--primary","#0b4f60"),document.documentElement.style.setProperty("--secondary","#199473"),document.documentElement.style.setProperty("--primary_ghost","rgba(11, 79, 96, 0.6);"),document.documentElement.style.setProperty("secondary_ghost","rgba(25, 148, 115, 0.6)"),["theme","lang","contrast",...m].forEach(e=>{delete globalThis.cookies[e]})})}}a(d,"handleEvents");document.readyState==="loading"?document.addEventListener("DOMContentLoaded",d):d();export{d as handleEvents};
+import {
+  state
+} from "../../chunk-T2QGDLIL.js";
+import {
+  __name
+} from "../../chunk-SHUYVCID.js";
+
+// src/client/events/settings/handleEvents.js
+var langArr = ["fi", "sv", "en"];
+var themeArr = ["dark", "light"];
+var contrastArr = ["low", "normal", "high"];
+var accentArr = ["primary", "secondary", "primary_ghost", "seconday_ghost"];
+sessionStorage.setItem("start-lang", document.documentElement.getAttribute("lang"));
+async function handleEvents() {
+  if (document.documentElement.getAttribute("data-view") === "interface") {
+    const themeMeta = document.getElementById("theme-color-meta");
+    langArr.forEach((lang) => {
+      const btn = document.getElementById(`${lang}-language`);
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        document.documentElement.setAttribute("lang", lang);
+        globalThis.cookies.lang = lang;
+        const rest = {
+          fi: "/omat-asetukset/k\xE4ytt\xF6liittym\xE4",
+          sv: "/mina-inst\xE4llningar/gr\xE4ns-snittet",
+          en: "/my-settings/interface"
+        }[lang];
+        const path = `/${lang}${rest}`;
+        history.pushState(null, "", path);
+      });
+    });
+    themeArr.forEach((theme) => {
+      const btn = document.getElementById(`${theme}-theme`);
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-theme", theme);
+        themeMeta.setAttribute(
+          "content",
+          {
+            dark: {
+              low: "#202020",
+              normal: "#000000",
+              high: "#000000"
+            },
+            light: {
+              low: "#dfdfdf",
+              normal: "#ffffff",
+              high: "#ffffff"
+            }
+          }[theme][cookies.contrast || "normal"]
+        );
+        globalThis.cookies.theme = theme;
+      });
+    });
+    contrastArr.forEach((contrast) => {
+      const btn = document.getElementById(`${contrast}-contrast`);
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-contrast", contrast);
+        themeMeta.setAttribute(
+          "content",
+          {
+            dark: {
+              low: "#202020",
+              normal: "#000000",
+              high: "#000000"
+            },
+            light: {
+              low: "#dfdfdf",
+              normal: "#ffffff",
+              high: "#ffffff"
+            }
+          }[cookies.theme || "dark"][contrast]
+        );
+        globalThis.cookies.contrast = contrast;
+      });
+    });
+    accentArr.forEach((accent) => {
+      const input = document.getElementById(`${accent}`);
+      if (!input) return;
+      input.addEventListener("input", (event) => {
+        const color = event.target.value;
+        document.documentElement.style.setProperty(`--${accent}`, color);
+        globalThis.cookies[accent] = color;
+      });
+    });
+    const resetBtn = document.getElementById("reset-styles");
+    if (!resetBtn) return;
+    resetBtn.addEventListener("click", async () => {
+      if (!confirmed) return;
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-contrast", "normal");
+      document.documentElement.setAttribute("lang", sessionStorage.getItem("start-lang") || state.lang);
+      document.documentElement.style.setProperty("--primary", "#0b4f60");
+      document.documentElement.style.setProperty("--secondary", "#199473");
+      document.documentElement.style.setProperty("--primary_ghost", "rgba(11, 79, 96, 0.6);");
+      document.documentElement.style.setProperty("secondary_ghost", "rgba(25, 148, 115, 0.6)");
+      const arr = ["theme", "lang", "contrast", ...accentArr];
+      arr.forEach((item) => {
+        delete globalThis.cookies[item];
+      });
+    });
+  }
+}
+__name(handleEvents, "handleEvents");
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", handleEvents);
+} else {
+  handleEvents();
+}
+export {
+  handleEvents
+};

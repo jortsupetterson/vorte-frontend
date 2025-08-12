@@ -11,4 +11,5 @@ export const state = {
 	lang: document.documentElement.lang,
 	path: window.location.pathname,
 	params: {},
+	content: {},
 };

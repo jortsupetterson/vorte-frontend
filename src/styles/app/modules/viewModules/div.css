@@ -11,10 +11,17 @@ view main section div {
 	border-radius: var(--br2);
 }
 
-view main section div.row {
-	flex-direction: row;
+div.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--pad1);
 }
 
-view main section div.column {
-	flex-direction: column;
+div.ghost {
+	background: var(--bg-ghost);
+	padding: var(--pad2);
+	border-radius: var(--br2);
+	gap: var(--pad2);
 }

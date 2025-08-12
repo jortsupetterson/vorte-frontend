@@ -505,7 +505,7 @@ export async function renderAuthentication(lang, nonce, cookies, visibility = 'n
     ${typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies, param) : ''}
   `;
 
-	const page = serverSideRender(
+	const page = await serverSideRender(
 		lang,
 		nonce,
 		cookies,

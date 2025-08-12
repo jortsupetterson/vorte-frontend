@@ -4,6 +4,7 @@ import buildEdgeRuntime from './build/buildEdgeRuntime.js';
 buildBrowserRuntime([
 	'./src/client/app.js',
 	'./src/client/network/sw.js',
+	'./src/client/workers/backgroundFetcher.js',
 	'./src/client/events/authentication/handleEvents.js',
 	'./src/client/events/dashboard/handleEvents.js',
 	'./src/client/events/settings/handleEvents.js',

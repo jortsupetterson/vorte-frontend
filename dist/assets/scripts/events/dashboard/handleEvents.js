@@ -1,1 +1,22 @@
-import{a as e}from"../../chunk-EI7MMDWY.js";async function n(){let[]=Promise.all()}e(n,"handleEvents");document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n();export{n as handleEvents};
+import {
+  __name
+} from "../../chunk-SHUYVCID.js";
+
+// src/client/events/dashboard/handleEvents.js
+async function handleEvents() {
+  let welcomeWidget = document.querySelector("#welcome.widget");
+  if (welcomeWidget) {
+    document.querySelector("#welcome.widget button").addEventListener("click", async () => {
+      welcomeWidget.classList.add("collapsed");
+    });
+  }
+}
+__name(handleEvents, "handleEvents");
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", handleEvents);
+} else {
+  handleEvents();
+}
+export {
+  handleEvents
+};

@@ -1,8 +1,10 @@
 .action,
 .function {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	gap: var(--pad1);
 	font-family: 'Inter';
 	font-size: clamp(10px, 2vh, 20px);
 	text-align: left;

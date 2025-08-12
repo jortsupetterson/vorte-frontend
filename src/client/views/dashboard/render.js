@@ -1,11 +1,10 @@
 import { content } from '../../../server/pages/dashboard.js';
-import initializeDOM from '../../modules/initializeDOM.js';
 
 if (!document.getElementById('dashboard-styles')) {
 	document.head.insertAdjacentHTML('beforeend', `<link id="dashboard-styles" rel="stylesheet" href="/styles/dashboard/style.css" />;`);
 }
 
-function render(lang) {
+function render(lang, contentPromise) {
 	return new Promise(async (resolve) => {
 		if (!document.body.querySelector('sidebar')) {
 			document.body.innerHTML = '';
@@ -37,39 +36,17 @@ function render(lang) {
 		app.sidebar.headline.textContent = content.sidebarHeadlines[lang];
 		app.sidebar.list.innerHTML = list;
 		app.view.header.headline.textContent = content.viewHeadlines[lang];
+		app.view.footer.innerHTML = typeof content.footerButtons === 'function' ? content.footerButtons(lang, cookies) : '';
 
-		const headerViewBtn = document.body.querySelector('view header button');
-		if (!headerViewBtn) {
-			app.view.header.self.insertAdjacentHTML(
-				'beforeend',
-				typeof content.viewHeaderButton === 'function' ? content.viewHeaderButton(lang) : ''
-			);
-		} else {
-			headerViewBtn.textContent = {
-				fi: 'lisää widget',
-				sv: 'lägg till widget',
-				en: 'add a widget',
-			}[lang];
-			headerViewBtn.setAttribute(
-				'title',
-				`${
-					{
-						fi: 'Lisää tilasto tai pikalinkki',
-						sv: 'Lägg till en spårare eller snabblänk',
-						en: 'Add a tracker or quicklink',
-					}[lang]
-				}`
-			);
-		}
-
-		app.view.main.innerHTML = '';
-
+		hydratedHtml = await contentPromise;
+		app.view.innerHTML = hydratedHtml;
 		resolve();
 	});
 }
 
-export async function renderDashboard(lang) {
-	await render(lang);
+export async function renderDashboard(lang, contentPromise) {
+	app.view.self.setAttribute('id', 'dashboard');
+	await render(lang, contentPromise);
 	//const { handleEvents } = await import('../../events/dashboard/handleEvents.js');
 	//handleEvents();
 }

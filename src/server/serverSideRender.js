@@ -4,7 +4,7 @@ import getTwitterCard from '../shared/utilities/getTwitterCard.js';
 import getSchemaLD from '../shared/utilities/getSchemaLD.js';
 import getPwa from '../shared/utilities/getPwa.js';
 
-export default function serverSideRender(
+export default async function serverSideRender(
 	lang,
 	nonce,
 	cookies,
@@ -15,8 +15,7 @@ export default function serverSideRender(
 	body,
 	events,
 	viewId,
-	headInjection = '',
-	profile
+	headInjection = ''
 ) {
 	return `
     <!doctype html>

@@ -16,8 +16,9 @@ const routeDefinitions = [
 	{
 		aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel', 'instrumentpanel', 'dash'],
 		handler: async (lang, nonce, cookies, route, env, params) => {
+			const contentPromise = env.DATA_SERVICE.getDashboardContent(cookies.AUTHORIZATION, lang);
 			const { renderDashboard } = await import('./pages/dashboard.js');
-			return renderDashboard(lang, nonce, cookies, 'noindex', route, env, params);
+			return renderDashboard(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},
 	},
 	{

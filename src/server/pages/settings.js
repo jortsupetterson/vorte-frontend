@@ -313,12 +313,12 @@ export const content = {
 		`;
 		},
 	},
-	viewHeaderButton: {
+	footerButtons: {
 		user: (lang) => {
 			return `
 		<button
 			id="delete-account"
-			class="function view-header-button"
+			class="function"
 			title="${
 				{
 					fi: 'Poista käyttäjätunnuksesi pysyvästi',
@@ -342,7 +342,7 @@ export const content = {
 			return `
 		<button
 		id="reset-styles"
-		class="function view-header-button"
+		class="function"
 		title="${
 			{
 				fi: 'Ota oletus tyylit käyttöön',
@@ -378,15 +378,16 @@ export async function renderSettings(lang, nonce, cookies, visibility = 'noindex
 	const body = `
         ${renderAppBanner(lang, content.titles, cookies)}
         ${renderAppSidebar(lang, content.sidebarHeadlines, content.sidebarList)}
-        ${renderAppView(
+        ${await renderAppView(
 					lang,
+					viewId,
 					content.viewHeadlines[viewId],
 					typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies) : '',
-					typeof content.viewHeaderButton[viewId] === 'function' ? content.viewHeaderButton[viewId](lang) : ''
+					typeof content.footerButtons[viewId] === 'function' ? content.footerButtons[viewId](lang) : ''
 				)}
     `;
 	const events = `<script type="module" src="/scripts/events/settings/handleEvents.js" defer></script>`;
-	const page = serverSideRender(
+	const page = await serverSideRender(
 		lang,
 		nonce,
 		cookies,

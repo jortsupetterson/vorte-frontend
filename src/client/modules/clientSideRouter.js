@@ -186,7 +186,7 @@ export function initializeRouter({ handlerMap, state, scheduleRender }) {
 			console.error(`No handler for route "${key}"`);
 			return;
 		}
-		await routeHandler(state.lang);
+		await routeHandler(state.lang, state.content);
 	}
 
 	const langObserver = createLangObserver((newLang) => {
@@ -198,9 +198,10 @@ export function initializeRouter({ handlerMap, state, scheduleRender }) {
 	});
 
 	const stopLinks = interceptLinks({
-		onNavigate: (path, params) => {
+		onNavigate: (path, params, contentPromise) => {
 			state.path = path;
 			state.params = params;
+			state.content = contentPromise;
 			history.pushState(null, '', path);
 			scheduleRender(loadAndRun);
 		},

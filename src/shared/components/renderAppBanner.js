@@ -61,6 +61,7 @@ export default function renderAppBanner(lang, titles, cookies) {
     <menu-heading>MY VORTE</menu-heading>
 
     <a
+	  id="dashboard"
       href="${{ fi: '/fi/ohjauspaneeli', sv: '/sv/instrumentpanel', en: '/en/dashboard' }[lang]}"
       hreflang="${lang}"
       title="${
@@ -92,13 +93,14 @@ export default function renderAppBanner(lang, titles, cookies) {
       <ul>
         <li>
           <a
-            href="${{ fi: '/fi/polku-yrittajaksi', sv: '/sv/vagen-till-foretagande', en: '/en/road-to-entrepreneurship' }[lang]}"
+		  	id="road-to-entrepreneurship"
+            href="${{ fi: '/fi/polku-yrittäjäksi', sv: '/sv/vagen-till-foretagande', en: '/en/road-to-entrepreneurship' }[lang]}"
             hreflang="${lang}"
             title="${
 							{
-								fi: 'Siirry Polku yrittäjäksi -sovellukseen',
-								sv: 'Navigera till Vägen till företagande-applikationen',
-								en: 'Navigate to Road to Entrepreneurship application',
+								fi: 'Avaa Polku yrittäjäksi -sovellus',
+								sv: 'Öppna applikationen Vägen till företagande',
+								en: 'Open the Road to Entrepreneurship application',
 							}[lang]
 						}"
           >
@@ -108,6 +110,56 @@ export default function renderAppBanner(lang, titles, cookies) {
 					fi: 'Polku yrittäjäksi',
 					sv: 'Vägen till företagande',
 					en: 'Road to Entrepreneurship',
+				}[lang]
+			}
+			</menu-sub-item>
+          </a>
+        </li>
+
+		<li>
+          <a
+		    id="todo"
+            href="${{ fi: '/fi/tehtavalista', sv: '/sv/att-gora-lista', en: '/en/todo-list' }[lang]}"
+            hreflang="${lang}"
+            title="${
+							{
+								fi: 'Avaa Tehtävälista-sovellus',
+								sv: 'Öppna applikationen Att göra-lista',
+								en: 'Open the To-Do List application',
+							}[lang]
+						}"
+          >
+            <menu-sub-item>
+			${
+				{
+					fi: 'Tehtävälista',
+					sv: 'Att göra-lista',
+					en: 'To-Do List',
+				}[lang]
+			}
+			</menu-sub-item>
+          </a>
+        </li>
+
+		<li>
+          <a
+		    id="calendar"
+            href="${{ fi: '/fi/kalenteri', sv: '/sv/kalender', en: '/en/calendar' }[lang]}"
+            hreflang="${lang}"
+            title="${
+							{
+								fi: 'Avaa Kalenteri-sovellus',
+								sv: 'Öppna applikationen Kalender',
+								en: 'Open the Calendar application',
+							}[lang]
+						}"
+          >
+            <menu-sub-item>
+			${
+				{
+					fi: 'Kalenteri',
+					sv: 'Kalender',
+					en: 'Calendar',
 				}[lang]
 			}
 			</menu-sub-item>
@@ -129,7 +181,7 @@ export default function renderAppBanner(lang, titles, cookies) {
             <menu-sub-item>
 			${
 				{
-					fi: 'Tulossa pian...',
+					fi: 'Tulossa...',
 					sv: 'Kommer snart...',
 					en: 'Coming soon...',
 				}[lang]

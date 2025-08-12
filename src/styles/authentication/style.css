@@ -29,19 +29,7 @@ section.authn {
 }
 
 section.authn div.column {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	width: clamp(200px, 512px, 85%);
-	gap: var(--pad1);
-}
-
-section.authn div.ghost {
-	background: var(--bg-ghost);
-	padding: var(--pad2);
-	border-radius: var(--br2);
-	gap: var(--pad2);
 }
 
 section.authn h1 {

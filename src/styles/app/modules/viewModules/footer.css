@@ -1,0 +1,19 @@
+view footer {
+	position: sticky;
+	bottom: -1%;
+	min-width: 100%;
+	min-height: 10%;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+view footer button {
+	will-change: transform;
+	transition: transform 0.2s ease-in-out;
+	position: relative;
+	background: var(--solid-ghost2);
+	transform: scale(1);
+}

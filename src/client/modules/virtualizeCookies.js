@@ -17,8 +17,9 @@ export default function createCookieProxy() {
 	}
 
 	function syncToDocument(key, value) {
-		const expires = new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000).toUTCString();
-		document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; path=/; SameSite=Strict; secure; expires=${expires};`;
+		document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; path=/; SameSite=Strict; secure; expires=${new Date(
+			Date.now() + 10 * 365 * 24 * 60 * 60 * 1000
+		).toUTCString()};`;
 	}
 
 	syncFromDocument();

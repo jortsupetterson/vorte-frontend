@@ -17,11 +17,6 @@ button {
 	padding: calc(var(--pad1) / 2) calc(var(--pad2) / 2);
 	border-radius: var(--br1);
 	font-family: 'Inter';
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: var(--pad1);
 	min-height: 2vh;
 }
 

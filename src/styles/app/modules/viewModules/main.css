@@ -2,11 +2,14 @@ view main {
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	gap: var(--pad3);
 	padding: var(--pad3);
 	min-width: 100%;
-	min-height: 88%;
+	min-height: 80%;
+	height: 80%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }

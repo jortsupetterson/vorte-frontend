@@ -42,9 +42,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		},
 		{
 			aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel'],
-			handler: async (lang) => {
+			handler: async (lang, contentPromise) => {
 				const { renderDashboard } = await import('./views/dashboard/render.js');
-				return renderDashboard(lang);
+				return renderDashboard(lang, contentPromise);
 			},
 		},
 		{
@@ -62,9 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
 				'användare',
 				'gräns-snittet',
 			],
-			handler: async (lang) => {
+			handler: async (lang, contentPromise) => {
 				const { renderSettings } = await import('./views/settings/render.js');
-				return renderSettings(lang);
+				return renderSettings(lang, contentPromise);
 			},
 		},
 		// …more routes…

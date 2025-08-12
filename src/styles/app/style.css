@@ -15,18 +15,6 @@ menu-heading {
 	pointer-events: none;
 }
 
-div.popup {
-	position: 'fixed';
-	top: 0;
-	left: 0;
-	transform: translate(-2.5vh, -2.5vh);
-	min-width: 100vw;
-	min-height: 100vh;
-	max-width: 100vw;
-	max-height: 100vh;
-	background: var(--bg-ghost);
-	z-index: 10;
-}
 
 .transparent {
 	background: transparent;

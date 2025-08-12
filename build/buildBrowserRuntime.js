@@ -26,7 +26,7 @@ export default async function buildMainThread(entry = ['./src/client/main/app.js
 		platform: 'browser',
 		format: 'esm',
 		target: ['es2024'],
-		minify: true,
+		minify: false,
 		plugins: [htmlMinifierPlugin()],
 		splitting: true,
 		outdir: outDir,

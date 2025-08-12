@@ -4,7 +4,7 @@ if (!document.getElementById('settings-styles')) {
 	document.head.insertAdjacentHTML('beforeend', `<link id="settings-styles" rel="stylesheet" href="/styles/settings/style.css" />;`);
 }
 
-function render(lang) {
+function render(lang, contentPromise) {
 	return new Promise(async (resolve) => {
 		let viewId = document.documentElement.getAttribute('data-view');
 
@@ -39,52 +39,16 @@ function render(lang) {
 		app.sidebar.headline.textContent = content.sidebarHeadlines[lang];
 		app.sidebar.list.innerHTML = list;
 		app.view.header.headline.textContent = content.viewHeadlines[viewId][lang];
-
-		const headerViewBtn = document.body.querySelector('view header button');
-		if (!headerViewBtn) {
-			app.view.header.self.insertAdjacentHTML(
-				'beforeend',
-				typeof content.viewHeaderButton[viewId] === 'function' ? content.viewHeaderButton[viewId](lang) : ''
-			);
-		} else {
-			headerViewBtn.textContent = {
-				user: {
-					fi: 'poista',
-					sv: 'radera',
-					en: 'delete',
-				}[lang],
-				interface: {
-					fi: 'nollaa',
-					sv: 'återställa',
-					en: 'reset',
-				}[lang],
-			}[viewId];
-			headerViewBtn.setAttribute(
-				'title',
-				`${
-					{
-						user: {
-							fi: 'Poista käyttäjätunnuksesi pysyvästi',
-							sv: 'Radera ditt konto permanent',
-							en: 'Permanently delete your account',
-						}[lang],
-						interface: {
-							fi: 'Ota oletus tyylit käyttöön',
-							sv: 'Aktivera standardstilar',
-							en: 'Activate default styles',
-						}[lang],
-					}[viewId]
-				}`
-			);
-		}
+		app.view.footer.innerHTML = typeof content.footerButtons[viewId] === 'function' ? content.footerButtons[viewId](lang, cookies) : '';
 
 		app.view.main.innerHTML = typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies) : '';
 		resolve();
 	});
 }
 
-export async function renderSettings(lang) {
-	await render(lang);
+export async function renderSettings(lang, contentPromise) {
+	await render(lang, contentPromise);
+	app.view.self.setAttribute('id', document.documentElement.getAttribute('data-view'));
 	const { handleEvents } = await import('../../events/settings/handleEvents.js');
 	handleEvents();
 	sessionStorage.setItem('last-visited-settings-view', document.documentElement.getAttribute('data-view'));
