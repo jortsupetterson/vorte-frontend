@@ -45,8 +45,10 @@ export default function interceptLinks({ onNavigate, shouldHandle }) {
 
 		//Prevents typical link behavior ("Intercepts a link for client side routing")
 		e.preventDefault();
-
 		const contentPromise = !staticViews.has(anchor.id) ? new EarlyOffscreenPromise(anchor.id) : '';
+		if (contentPromise !== '') {
+			app.view.main.classList.add('translucent');
+		}
 		document.documentElement.setAttribute('data-view', anchor.id);
 		const path = anchor.pathname;
 		const params = Object.fromEntries(new URLSearchParams(anchor.search).entries());

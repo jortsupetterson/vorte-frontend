@@ -58,14 +58,6 @@ section.authn input {
 	min-width: 90%;
 	max-width: 90%;
 }
-section.authn label {
-	min-width: 90%;
-	max-width: 90%;
-	text-align: left;
-	position: relative;
-	left: 0;
-	font-size: smaller;
-}
 
 section.authn div.row {
 	display: flex;

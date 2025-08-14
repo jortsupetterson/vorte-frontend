@@ -492,7 +492,7 @@ export async function renderAuthentication(lang, nonce, cookies, visibility = 'n
 	const body = `
     <svg class="background" xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
       <g filter="url(#filter0_f_1056_109)">
-        <path d="M294.5 539.5L96 681V1000.5L356 956.5L498.5 730.5L646 539.5L892.5 478.5H1071L1257.25 654L1679.75 478.5L1823.5 270.5V32H1585.5L1540.5 67L1393.5 270.5L1238 306.5L1111 192L710.5 32L498.5 351L356 449L294.5 539.5Z" fill="var(--secondary)" fill-opacity="0.10"/>
+        <path d="M294.5 539.5L96 681V1000.5L356 956.5L498.5 730.5L646 539.5L892.5 478.5H1071L1257.25 654L1679.75 478.5L1823.5 270.5V32H1585.5L1540.5 67L1393.5 270.5L1238 306.5L1111 192L710.5 32L498.5 351L356 449L294.5 539.5Z" fill="var(--c2)" fill-opacity="0.10"/>
       </g>
       <defs>
         <filter id="filter0_f_1056_109" x="-104" y="-168" width="2127.5" height="1368.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

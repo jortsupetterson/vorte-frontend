@@ -30,7 +30,7 @@ export default async function buildEdgeRuntime(entry = './src/server/serverSideR
 		target: ['es2024'],
 		plugins: [htmlMinifierPlugin()],
 		minify: true,
-		splitting: true,
+		splitting: false,
 		treeShaking: true,
 		outdir: outDir,
 		keepNames: true,

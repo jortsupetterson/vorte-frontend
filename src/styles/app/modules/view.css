@@ -5,6 +5,7 @@
 @import url('./viewModules/section.css');
 @import url('./viewModules/div.css');
 @import url('./viewModules/input.css');
+@import url('./viewModules/chat-button.css');
 
 view {
 	transition: width 0.2s ease;

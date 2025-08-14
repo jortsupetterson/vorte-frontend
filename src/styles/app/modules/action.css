@@ -21,10 +21,10 @@
 	transform: translate(0, 10%);
 }
 
-.action::before {
-	background: var(--secondary);
+.function::before {
+	background: var(--c1);
 }
 
-.function::before {
-	background: var(--primary);
+.action::before {
+	background: var(--c2);
 }

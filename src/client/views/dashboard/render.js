@@ -38,15 +38,18 @@ function render(lang, contentPromise) {
 		app.view.header.headline.textContent = content.viewHeadlines[lang];
 		app.view.footer.innerHTML = typeof content.footerButtons === 'function' ? content.footerButtons(lang, cookies) : '';
 
-		hydratedHtml = await contentPromise;
-		app.view.innerHTML = hydratedHtml;
-		resolve();
+		setTimeout(async () => {
+			const hydratedHtml = await contentPromise;
+			app.view.main.innerHTML = hydratedHtml;
+			app.view.main.classList.remove('translucent');
+			resolve();
+		}, 500);
 	});
 }
 
 export async function renderDashboard(lang, contentPromise) {
 	app.view.self.setAttribute('id', 'dashboard');
 	await render(lang, contentPromise);
-	//const { handleEvents } = await import('../../events/dashboard/handleEvents.js');
-	//handleEvents();
+	const { handleEvents } = await import('../../events/dashboard/handleEvents.js');
+	handleEvents();
 }

@@ -8,6 +8,7 @@ view footer {
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
+	gap: var(--pad2);
 }
 
 view footer button {
@@ -16,4 +17,5 @@ view footer button {
 	position: relative;
 	background: var(--solid-ghost2);
 	transform: scale(1);
+	margin: 0;
 }

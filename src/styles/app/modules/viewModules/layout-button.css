@@ -2,12 +2,14 @@ layout-button {
 	position: absolute;
 	top: var(--pad2);
 	left: var(--pad2);
-	min-width: 5vh;
-	max-width: 5vh;
-	min-height: 3vh;
-	max-height: 3vh;
-	border: solid clamp(0.4px, 0.25vh, 6px) var(--text);
+	min-width: 4.5vh;
+	max-width: 4.5vh;
+	min-height: 2.75vh;
+	max-height: 2.75vh;
+	background: var(--text);
+	border: solid clamp(0.4px, 0.25vh, 6px) var(--solid-ghost1);
 	border-radius: var(--br1);
+	opacity: 0.8;
 }
 
 layout-button::after {
@@ -16,9 +18,9 @@ layout-button::after {
 	position: absolute;
 	top: 20%;
 	left: 0;
-	min-height: 0.5px;
+	min-height: 1.5px;
 	min-width: 100%;
-	background: var(--text);
+	background: var(--solid-ghost1);
 }
 
 layout-button::before {
@@ -28,8 +30,8 @@ layout-button::before {
 	bottom: 0;
 	left: 25%;
 	min-height: 80%;
-	min-width: 0.5px;
-	background: var(--text);
+	min-width: 2px;
+	background: var(--solid-ghost1);
 }
 
 layout-button.toggled::before {

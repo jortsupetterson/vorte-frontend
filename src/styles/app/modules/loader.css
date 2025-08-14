@@ -10,12 +10,21 @@
 	max-width: 90%;
 }
 
-#loader-animation {
+dialog #loader-animation {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 3vh;
 	min-width: 3vh;
+	position: relative;
+}
+
+view main #loader-animation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 10vh;
+	min-width: 10vh;
 	position: relative;
 }
 

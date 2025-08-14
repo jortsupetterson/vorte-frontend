@@ -3,7 +3,7 @@ import { state } from '../../modules/state.js';
 const langArr = ['fi', 'sv', 'en'];
 const themeArr = ['dark', 'light'];
 const contrastArr = ['low', 'normal', 'high'];
-const accentArr = ['primary', 'secondary', 'primary_ghost', 'seconday_ghost'];
+const accentArr = ['c1', 'c2', 'c3', 'c4'];
 sessionStorage.setItem('start-lang', document.documentElement.getAttribute('lang'));
 
 export async function handleEvents() {
@@ -93,10 +93,10 @@ export async function handleEvents() {
 			document.documentElement.setAttribute('data-theme', 'dark');
 			document.documentElement.setAttribute('data-contrast', 'normal');
 			document.documentElement.setAttribute('lang', sessionStorage.getItem('start-lang') || state.lang);
-			document.documentElement.style.setProperty('--primary', '#0b4f60');
-			document.documentElement.style.setProperty('--secondary', '#199473');
-			document.documentElement.style.setProperty('--primary_ghost', 'rgba(11, 79, 96, 0.6);');
-			document.documentElement.style.setProperty('secondary_ghost', 'rgba(25, 148, 115, 0.6)');
+			document.documentElement.style.setProperty('--c1', '#0b4f60');
+			document.documentElement.style.setProperty('--c2', '#199473');
+			document.documentElement.style.setProperty('--c3', 'rgba(11, 79, 96, 0.6);');
+			document.documentElement.style.setProperty('c4', 'rgba(25, 148, 115, 0.6)');
 
 			const arr = ['theme', 'lang', 'contrast', ...accentArr];
 			arr.forEach((item) => {

@@ -8,11 +8,6 @@ function render(lang, contentPromise) {
 	return new Promise(async (resolve) => {
 		let viewId = document.documentElement.getAttribute('data-view');
 
-		if (!new Set(['interface', 'user']).has(viewId)) {
-			viewId = sessionStorage.getItem('last-visited-settings-view') || 'user';
-			document.documentElement.setAttribute('data-view', viewId);
-		}
-
 		let list = '';
 
 		content.sidebarList.forEach((listItem) => {
@@ -39,10 +34,14 @@ function render(lang, contentPromise) {
 		app.sidebar.headline.textContent = content.sidebarHeadlines[lang];
 		app.sidebar.list.innerHTML = list;
 		app.view.header.headline.textContent = content.viewHeadlines[viewId][lang];
-		app.view.footer.innerHTML = typeof content.footerButtons[viewId] === 'function' ? content.footerButtons[viewId](lang, cookies) : '';
+		app.view.footer.innerHTML = content.footerButtons(viewId, lang);
 
-		app.view.main.innerHTML = typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies) : '';
-		resolve();
+		setTimeout(async () => {
+			const hydratedHtml = await contentPromise;
+			app.view.main.innerHTML = hydratedHtml;
+			app.view.main.classList.remove('translucent');
+			resolve();
+		}, 500);
 	});
 }
 

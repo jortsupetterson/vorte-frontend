@@ -1,3 +1,4 @@
+import { initializeServices } from './services/initializeServices.js';
 import { getCookies, getDecryptedCookie } from '../shared/utilities/getCookies.js';
 import routeDefinitions from './routeDefinitions.js';
 
@@ -92,8 +93,7 @@ export default {
 					ctx.waitUntil(env.BANNED_IPS_KV.put(ip, 'true'));
 					return cached ?? BAN_RESPONSE(lang);
 				}
-				const { initializeServices } = await import('./services/initializeServices.js');
-				return await initializeServices(env, lang, cookies, segments, searchParams, request.json());
+				return await initializeServices(env, lang, cookies, segments, searchParams, request.json(), request.method);
 			}
 
 			const pathSegments = SUPPORTED_LANGUAGES.has(first) ? rest : segments;

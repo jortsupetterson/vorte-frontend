@@ -1,4 +1,7 @@
 view main {
+	will-change: opacity;
+	transition: opacity 0.25s ease-in-out;
+	opacity: 1;
 	position: relative;
 	display: flex;
 	flex-direction: row;

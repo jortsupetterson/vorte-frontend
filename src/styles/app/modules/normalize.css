@@ -59,3 +59,12 @@ summary::-moz-list-bullet {
 summary::marker {
 	content: none;
 }
+
+label {
+	min-width: 90%;
+	max-width: 90%;
+	text-align: left;
+	position: relative;
+	left: 0;
+	font-size: smaller;
+}

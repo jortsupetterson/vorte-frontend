@@ -6,9 +6,12 @@ view main section div {
 	background: var(--bg-ghost);
 	min-width: 100%;
 	max-width: 100%;
-	height: auto;
 	padding: var(--pad2);
 	border-radius: var(--br2);
+}
+
+view main section div.sub-section {
+	min-height: 20vh;
 }
 
 div.column {
@@ -17,11 +20,4 @@ div.column {
 	justify-content: center;
 	align-items: center;
 	gap: var(--pad1);
-}
-
-div.ghost {
-	background: var(--bg-ghost);
-	padding: var(--pad2);
-	border-radius: var(--br2);
-	gap: var(--pad2);
 }

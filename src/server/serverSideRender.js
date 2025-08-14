@@ -24,6 +24,7 @@ export default async function serverSideRender(
     data-theme="${cookies['theme'] || 'dark'}" 
     data-contrast="${cookies['contrast'] || 'normal'}"
     data-view="${viewId}"
+    data-newsletter='true'
     >
     
 
@@ -51,10 +52,10 @@ export default async function serverSideRender(
      ">
     <style id="accents" nonce="${nonce}">
     html {
-        --primary: ${cookies.primary || '#0b4f60'};
-	    --secondary: ${cookies.secondary || '#199473'};
-	    --primary_ghost: ${cookies.primary_ghost || 'rgba(11, 79, 96, 0.6)'};
-	    --secondary_ghost: ${cookies.secondary_ghost || 'rgba(25, 148, 115, 0.6)'};
+        --c1: ${cookies.c1 || '#0b4f60'};
+	    --c2: ${cookies.c2 || '#199473'};
+	    --c3: ${cookies.c3 || '#C75858'};
+	    --c4: ${cookies.c4 || '#196129'};
         }
     </style>
     ${stylesheets}

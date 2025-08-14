@@ -23,9 +23,13 @@ const authnHandlerMap = {
 	},
 };
 
-const handlerMap = {};
+const crudHandlerMap = {
+	GET: async (env, lang, cookies, segments) => {
+		return await env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, segments[2]);
+	},
+};
 
-export async function initializeServices(env, lang, cookies, segments, searchParams, messageBody) {
+export async function initializeServices(env, lang, cookies, segments, searchParams, messageBody, requestMethod) {
 	if (segments[1] === 'authn') {
 		//SIGN_IN_INITIALIZATION
 		if (segments[3] === 'init') {
@@ -63,4 +67,23 @@ export async function initializeServices(env, lang, cookies, segments, searchPar
 			headers: response.headers,
 		});
 	}
+
+	if (!cookies.AUTHORIZATION) {
+		return new Response(null, {
+			status: 401,
+		});
+	}
+
+	if (segments[1] === 'data') {
+		const handler = await crudHandlerMap[await requestMethod];
+		const response = await handler(env, lang, cookies, segments, searchParams, messageBody);
+		return new Response(response.body, {
+			status: response.status,
+			headers: response.headers,
+		});
+	}
+
+	return new Response(null, {
+		status: 404,
+	});
 }

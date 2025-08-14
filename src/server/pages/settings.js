@@ -2,7 +2,7 @@ import serverSideRender from '../serverSideRender.js';
 import getPageResponseHeaders from '../../shared/utilities/getPageResponseHeaders.js';
 import renderAppBanner from '../../shared/components/renderAppBanner.js';
 import renderAppView from '../../shared/components/renderAppView.js';
-import renderAppSidebar from '../../shared/components/renderAppsidebar.js';
+import renderAppSidebar from '../../shared/components/renderAppSidebar.js';
 
 export const content = {
 	titles: {
@@ -78,247 +78,34 @@ export const content = {
 			en: 'INTERFACE CUSTOMIZATION',
 		},
 	},
-	viewContent: {
-		user: (lang, cookies) => {
-			return `
-		`;
-		},
-		interface: (lang, cookies) => {
-			return `
-			<section class="column">
-				<h4>
-					${
-						{
-							fi: 'Teema',
-							sv: 'Tema',
-							en: 'Theme',
-						}[lang]
-					}
-				</h4>
-				<div class="row">
-				<button
-				id="dark-theme"
-				title="${
-					{
-						fi: 'Ota tumma teema käyttöön',
-						sv: 'Aktivera mörk tema',
-						en: 'Activate dark theme',
-					}[lang]
-				}"
-				>
-					${
-						{
-							fi: 'tumma',
-							sv: 'mörk',
-							en: 'dark',
-						}[lang]
-					}
-				</button>
-				<button
-				id="light-theme"
-				title="${
-					{
-						fi: 'Ota vaalea teema käyttöön',
-						sv: 'Aktivera ljus tema',
-						en: 'Activate light theme',
-					}[lang]
-				}"
-				>
-					${
-						{
-							fi: 'vaalea',
-							sv: 'ljus',
-							en: 'light',
-						}[lang]
-					}
-				</button>
-				</div>
-			</section>
-			<section class="column">
-				<h4>
-					${
-						{
-							fi: 'Kontrasti',
-							sv: 'Kontrast',
-							en: 'Contrast',
-						}[lang]
-					}
-				</h4>
-				<div class="row">
-				<button
-				id="low-contrast"
-				title="${
-					{
-						fi: 'Ota matala kontrasti käyttöön',
-						sv: 'Aktivera låg kontrast',
-						en: 'Activate low contrast',
-					}[lang]
-				}"
-				>
-					${
-						{
-							fi: 'matala',
-							sv: 'låg',
-							en: 'low',
-						}[lang]
-					}
-				</button>
-				<button
-				id="normal-contrast"
-				title="${
-					{
-						fi: 'Ota normaali kontrasti käyttöön',
-						sv: 'Aktivera normal kontrast',
-						en: 'Activate normal contrast',
-					}[lang]
-				}"
-				>
-					${
-						{
-							fi: 'normaali',
-							sv: 'normal',
-							en: 'normal',
-						}[lang]
-					}
-				</button>
-				<button
-				id="high-contrast"
-				title="${
-					{
-						fi: 'Ota korkea kontrasti käyttöön',
-						sv: 'Aktivera hög kontrast',
-						en: 'Activate high contrast',
-					}[lang]
-				}"
-				>
-					${
-						{
-							fi: 'korkea',
-							sv: 'hög',
-							en: 'high',
-						}[lang]
-					}
-				</button>
-				</div>
-			</section>
-						<section class="column">
-				<h4>
-					${
-						{
-							fi: 'Korostus',
-							sv: 'Accent',
-							en: 'Accent',
-						}[lang]
-					}
-				</h4>
-				<div class="row">
-					<input title="${
-						{
-							fi: 'Muuta väriä',
-							sv: 'Ändra färg',
-							en: 'Change color',
-						}[lang]
-					}" 
-					type="color" 
-					value="${cookies['primary'] || '#0B4F60'}" 
-					id="primary" 
-					/>
-					<input 
-					title="${
-						{
-							fi: 'Muuta väriä',
-							sv: 'Ändra färg',
-							en: 'Change color',
-						}[lang]
-					}"
-					type="color"
-					value="${cookies['secondary'] || '#199473'}" 
-					id="secondary" />
-					<input 
-					title="${
-						{
-							fi: 'Muuta väriä',
-							sv: 'Ändra färg',
-							en: 'Change color',
-						}[lang]
-					}"
-					type="color" 
-					value="${cookies['primary_ghost'] || '#0B4F60'}" 
-					id="primary_ghost" 
-					class="ghost" />
-					<input
-					title="${
-						{
-							fi: 'Muuta väriä',
-							sv: 'Ändra färg',
-							en: 'Change color',
-						}[lang]
-					}"
-					type="color" 
-					value="${cookies['secondary_ghost'] || '#199473'}" 
-					id="secondary_ghost" 
-					class="ghost" />
-				</div>
-			</section>
-			<section class="column">
-  				<h4>
-    				${
+	footerButtons: (viewId, lang) => {
+		return (
+			`
+						<button
+							id="save-changes"
+							class="action"
+							title="${
+								{
+									fi: 'Tallenna muutokset palvelimelle',
+									sv: 'Spara ändringarna till servern',
+									en: 'Save changes to server',
+								}[lang]
+							}"
+						>
+						${
 							{
-								fi: 'Kieli',
-								sv: 'Språk',
-								en: 'Language',
+								fi: 'tallenna',
+								sv: 'spara',
+								en: 'save',
 							}[lang]
 						}
-  				</h4>
- 				 <div class="row">
-  					<button
-      				id="fi-language"
-     				title="${
-							{
-								fi: 'Ota Suomen kieli käyttöön',
-								sv: 'Byt till finska språket',
-								en: 'Switch to Finnish language',
-							}[lang]
-						}"
-    >
-      FI
-    </button>
-    <button
-      id="sv-language"
-      title="${
-				{
-					fi: 'Vaihda Ruotsin kieleen',
-					sv: 'Byt till svenska språket',
-					en: 'Switch to Swedish language',
-				}[lang]
-			}"
-    >
-      SV
-    </button>
-    <button
-      id="en-language"
-      title="${
-				{
-					fi: 'Vaihda Englannin kieleen',
-					sv: 'Byt till engelska språket',
-					en: 'Switch to English language',
-				}[lang]
-			}"
-    >
-      EN
-    </button>
-  </div>
-</section>
-
-		`;
-		},
-	},
-	footerButtons: {
-		user: (lang) => {
-			return `
+						</button>
+								` +
+			{
+				user: `
 		<button
 			id="delete-account"
-			class="function"
+			class="action"
 			title="${
 				{
 					fi: 'Poista käyttäjätunnuksesi pysyvästi',
@@ -335,14 +122,11 @@ export const content = {
 				}[lang]
 			}
 			</button>
-
-			`;
-		},
-		interface: (lang) => {
-			return `
+			`,
+				interface: `
 		<button
 		id="reset-styles"
-		class="function"
+		class="action"
 		title="${
 			{
 				fi: 'Ota oletus tyylit käyttöön',
@@ -359,12 +143,13 @@ export const content = {
 				}[lang]
 			}
 		</button>
-		`;
-		},
+		`,
+			}[viewId]
+		);
 	},
 };
 
-export async function renderSettings(lang, nonce, cookies, visibility = 'noindex', route, env) {
+export async function renderSettings(lang, nonce, cookies, visibility = 'noindex', route, env, contentPromise) {
 	let viewId = 'user';
 	if (new Set(['interface', 'gräns-snittet', 'käyttöliittymä']).has(route)) {
 		viewId = 'interface';
@@ -378,13 +163,7 @@ export async function renderSettings(lang, nonce, cookies, visibility = 'noindex
 	const body = `
         ${renderAppBanner(lang, content.titles, cookies)}
         ${renderAppSidebar(lang, content.sidebarHeadlines, content.sidebarList)}
-        ${await renderAppView(
-					lang,
-					viewId,
-					content.viewHeadlines[viewId],
-					typeof content.viewContent[viewId] === 'function' ? content.viewContent[viewId](lang, cookies) : '',
-					typeof content.footerButtons[viewId] === 'function' ? content.footerButtons[viewId](lang) : ''
-				)}
+        ${await renderAppView(lang, viewId, content.viewHeadlines[viewId], contentPromise, content.footerButtons(viewId, lang))}
     `;
 	const events = `<script type="module" src="/scripts/events/settings/handleEvents.js" defer></script>`;
 	const page = await serverSideRender(

@@ -1,3 +1,8 @@
+import { renderAuthentication } from './pages/authentication.js';
+import { renderCalender } from './pages/calender.js';
+import { renderDashboard } from './pages/dashboard.js';
+import { renderSettings } from './pages/settings.js';
+
 /**
  * @typedef {Object} RouteDefinition
  * @property {string[]} aliases - Route indentifiers per language.
@@ -11,34 +16,6 @@ const routeDefinitions = [
 		aliases: ['landing', 'koti', 'hem', 'home', 'about', 'meistä'],
 		handler: async () => {
 			return Response.redirect('https://why.vorte.app', 302);
-		},
-	},
-	{
-		aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel', 'instrumentpanel', 'dash'],
-		handler: async (lang, nonce, cookies, route, env, params) => {
-			const contentPromise = env.DATA_SERVICE.getDashboardContent(cookies.AUTHORIZATION, lang);
-			const { renderDashboard } = await import('./pages/dashboard.js');
-			return renderDashboard(lang, nonce, cookies, 'noindex', route, env, contentPromise);
-		},
-	},
-	{
-		aliases: [
-			'settings',
-			'my-settings',
-			'user',
-			'interface',
-			'asetukset',
-			'omat-asetukset',
-			'käyttäjä',
-			'käyttöliittymä',
-			'inställningar',
-			'mina-inställningar',
-			'användare',
-			'gräns-snittet',
-		],
-		handler: async (lang, nonce, cookies, route, env, params) => {
-			const { renderSettings } = await import('./pages/settings.js');
-			return renderSettings(lang, nonce, cookies, 'noindex', route, env, params);
 		},
 	},
 	{
@@ -69,8 +46,35 @@ const routeDefinitions = [
 			'inloggning',
 		],
 		handler: async (lang, nonce, cookies, route, env, params) => {
-			const { renderAuthentication } = await import('./pages/authentication.js');
 			return renderAuthentication(lang, nonce, cookies, 'noindex', route, env, params);
+		},
+	},
+	{
+		aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel', 'instrumentpanel', 'dash'],
+		handler: async (lang, nonce, cookies, route, env, params) => {
+			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'dashboard');
+			return renderDashboard(lang, nonce, cookies, 'noindex', route, env, contentPromise);
+		},
+	},
+	{
+		aliases: ['my-settings', 'user', 'omat-asetukset', 'käyttäjä', 'inställningar', 'mina-inställningar', 'användare'],
+		handler: async (lang, nonce, cookies, route, env, params) => {
+			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'user');
+			return renderSettings(lang, nonce, cookies, 'noindex', route, env, contentPromise);
+		},
+	},
+	{
+		aliases: ['interface', 'käyttöliittymä', 'gräns-snittet'],
+		handler: async (lang, nonce, cookies, route, env, params) => {
+			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'interface');
+			return renderSettings(lang, nonce, cookies, 'noindex', route, env, contentPromise);
+		},
+	},
+	{
+		aliases: ['calendar', 'kalenteri', 'kalender'],
+		handler: async (lang, nonce, cookies, route, env, params) => {
+			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'calender');
+			return renderCalender(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},
 	},
 	// Add routes ass needed

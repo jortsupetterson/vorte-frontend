@@ -1,6 +1,2 @@
 @import url('./modules/vars.css');
 @import url('./modules/input-color.css');
-
-div {
-	min-height: 20vh;
-}

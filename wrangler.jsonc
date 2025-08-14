@@ -3,9 +3,9 @@
 	"account_id": "e8ef5da3c57b544081f2e4181d6cecc9",
 	"name": "frontend-v0",
 	"main": "./src/server/serverSideRouter.js",
-	"compatibility_date": "2025-08-05",
+	"compatibility_date": "2025-08-12",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-	"minify": false,
+	"minify": true,
 	"dev": {
 		"local_protocol": "https"
 	},

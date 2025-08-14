@@ -15,9 +15,17 @@ menu-heading {
 	pointer-events: none;
 }
 
+.translucent {
+	opacity: 0;
+}
 
 .transparent {
 	background: transparent;
+	padding: calc(var(--pad1) / 2);
+}
+
+.ghost {
+	background: var(--bg-ghost);
 }
 
 .primary {

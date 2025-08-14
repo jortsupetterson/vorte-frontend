@@ -233,6 +233,7 @@ export default function renderAppBanner(lang, titles, cookies) {
 
   <profile-dropdown role="menubar">
     <a
+	 id="user"
       href="${{ fi: '/fi/omat-asetukset', sv: '/sv/mina-inställningar', en: '/en/my-settings' }[lang]}"
       hreflang="${lang}"
       title="${

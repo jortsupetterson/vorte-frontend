@@ -1,10 +1,13 @@
 // src/client/index.js
-
+globalThis.app = '';
 import initializeDOM from './modules/initializeDOM.js';
 import { initializeRouter } from './modules/clientSideRouter.js';
 import { state } from './modules/state.js';
 import { scheduleRender } from './modules/scheduleRender.js';
 import createCookieProxy from './modules/virtualizeCookies.js';
+import { renderAuthentication } from './views/authentication/render.js';
+import { renderDashboard } from './views/dashboard/render.js';
+import { renderSettings } from './views/settings/render.js';
 
 window.addEventListener('DOMContentLoaded', () => {
 	const routeDefinitions = [
@@ -36,14 +39,12 @@ window.addEventListener('DOMContentLoaded', () => {
 				'inloggning',
 			],
 			handler: async (lang) => {
-				const { renderAuthentication } = await import('./views/authentication/render.js');
 				return renderAuthentication(lang);
 			},
 		},
 		{
 			aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel'],
 			handler: async (lang, contentPromise) => {
-				const { renderDashboard } = await import('./views/dashboard/render.js');
 				return renderDashboard(lang, contentPromise);
 			},
 		},
@@ -63,7 +64,6 @@ window.addEventListener('DOMContentLoaded', () => {
 				'gräns-snittet',
 			],
 			handler: async (lang, contentPromise) => {
-				const { renderSettings } = await import('./views/settings/render.js');
 				return renderSettings(lang, contentPromise);
 			},
 		},

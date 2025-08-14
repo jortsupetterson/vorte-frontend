@@ -6,9 +6,9 @@ import renderAppSidebar from '../../shared/components/renderAppSidebar.js';
 
 export const content = {
 	titles: {
-		fi: 'Ohjauspaneeli',
-		sv: 'Instrumentpanel',
-		en: 'Dashboard',
+		fi: 'Kalenteri',
+		sv: 'Kalender',
+		en: 'Calender',
 	},
 
 	descriptions: {
@@ -17,15 +17,15 @@ export const content = {
 		en: 'Manage your business data, goals, and plans from a single place. The Vorte dashboard brings your essential tools together in one view.',
 	},
 	urls: {
-		fi: '/fi/ohjauspaneeli',
-		sv: '/sv/instrumentpanel',
-		en: '/en/dashboard',
+		fi: '/fi/kalenteri',
+		sv: '/sv/kalender',
+		en: '/en/calender',
 	},
 
 	sidebarHeadlines: {
-		fi: 'SOVELLUKSET',
-		sv: 'APPAR',
-		en: 'APPS',
+		fi: 'VALIKKO',
+		sv: 'MENY',
+		en: 'MENU',
 	},
 
 	sidebarList: [
@@ -124,11 +124,11 @@ export const content = {
 		}[lang]
 	}
 </button>
-			`;
+            `;
 	},
 };
 
-export async function renderDashboard(lang, nonce, cookies, visibility = 'noindex', route, env, contentPromise) {
+export async function renderCalender(lang, nonce, cookies, visibility = 'noindex', route, env, contentPromise) {
 	//Always include a top level style sheet based on if its a Sales or Application page as well as a view specific stylesheet
 	const stylesheets = `
     <link rel="stylesheet" href="/styles/app/style.css">

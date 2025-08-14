@@ -8,7 +8,7 @@ menu-item {
 menu-item::before {
 	content: '';
 	display: inline-block;
-	background: var(--primary);
+	background: var(--c1);
 	height: clamp(12px, 2.75vh, 20px);
 	width: clamp(1px, 0.25vh, 10px);
 	transform: translate(-100%, 10%);
@@ -17,12 +17,13 @@ menu-item::before {
 menu-sub-item {
 	margin-top: var(--pad1);
 	margin-left: var(--pad2);
+	font-weight: 100;
 }
 
 menu-sub-item::before {
 	content: '';
 	display: inline-block;
-	background: var(--secondary);
+	background: var(--c2);
 	height: clamp(12px, 2.75vh, 20px);
 	width: clamp(1px, 0.25vh, 10px);
 	transform: translate(-100%, 10%);
