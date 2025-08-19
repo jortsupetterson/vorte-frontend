@@ -10,12 +10,3 @@ view footer {
 	z-index: 1;
 	gap: var(--pad2);
 }
-
-view footer button {
-	will-change: transform;
-	transition: transform 0.2s ease-in-out;
-	position: relative;
-	background: var(--solid-ghost2);
-	transform: scale(1);
-	margin: 0;
-}

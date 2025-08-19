@@ -1,5 +1,5 @@
 import { initializeServices } from './services/initializeServices.js';
-import { getCookies, getDecryptedCookie } from '../shared/utilities/getCookies.js';
+import { getCookies, getDecryptedCookie } from './utilities/getCookies.js';
 import routeDefinitions from './routeDefinitions.js';
 
 /** @module serverSideRouter
@@ -112,10 +112,10 @@ export default {
 			const [routeHandler, nonce] = await Promise.all([handlerMap.get(route), env.CRYPTO_SERVICE.getNonce()]);
 
 			if (!routeHandler) {
-				return Response.redirect('https://why.vorte.app/page-list', 302);
+				return Response.redirect('https://why.vorte.app/pages', 302);
 			}
 
-			return await routeHandler(lang, nonce, cookies, route, env, searchParams);
+			return await routeHandler(env, lang, nonce, cookies, route, searchParams);
 		} catch (error) {
 			console.error(error);
 			const errorPage = error;

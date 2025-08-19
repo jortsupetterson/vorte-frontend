@@ -8,6 +8,8 @@ function render(lang, contentPromise) {
 	return new Promise(async (resolve) => {
 		let viewId = document.documentElement.getAttribute('data-view');
 
+		app.sidebar.footer.vor.src = '/images/Vor/waving.svg';
+
 		let list = '';
 
 		content.sidebarList.forEach((listItem) => {
@@ -22,6 +24,7 @@ function render(lang, contentPromise) {
           title="${listItem.title[lang]}"
         >
           <menu-item>
+		  ${listItem.icon || ''}
 		  ${listItem.text[lang]}
 		  </menu-item>
         </a>

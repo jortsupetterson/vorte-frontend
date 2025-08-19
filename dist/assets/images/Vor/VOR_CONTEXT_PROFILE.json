@@ -1,0 +1,144 @@
+{
+	"profile_name": "vor_mascot_neutral_entrepeneur_vorte_mascot",
+	"version": "1.0.0",
+	"determinism": {
+		"strict": true,
+		"seed": 1032662620,
+		"randomness": 0.0,
+		"temperature": 0.0,
+		"guidance_scale": 7.0,
+		"scheduler": "ddim",
+		"steps": 30,
+		"model_version_hint": "3d-toy-style"
+	},
+	"brand": {
+		"name": "Vorte",
+		"colors": {
+			"skin_mint_light": "#AEE7D9",
+			"skin_shadow": "#8DD3C5",
+			"hoodie_dark_teal": "#113C34",
+			"hoodie_mid_teal": "#18574B",
+			"accent_cyan": "#30D5C8",
+			"logo_white": "#FFFFFF",
+			"eye_black": "#1B1B1B",
+			"mouth_dark": "#0E0E0E",
+			"brow_teal_light": "#2AA19A"
+		},
+		"logo": {
+			"id": "vorte_V_mark",
+			"url": "https://vorte.app/images/vorte_logo.png",
+			"hex": "#FFFFFF",
+			"stroke": null,
+			"safe_clearspace_pct": 10,
+			"geometry_rules": {
+				"type": "stacked_V_trident",
+				"aspect_ratio_w_h": 0.78,
+				"bar_top_height_pct": 10,
+				"inner_V_apex_cut_pct": 22
+			},
+			"placement_rules": {
+				"where": "hoodie_center_chest",
+				"width_pct_of_torso": 34,
+				"vertical_offset_pct_of_torso": -2,
+				"rotation_deg": 0,
+				"render_style": "flat_white_decal",
+				"must_be_visible": true
+			}
+		}
+	},
+	"style": {
+		"look": "3d_rubberized_matte",
+		"finish": "soft_matte",
+		"silhouette": "ultra_rounded_super_cute",
+		"consistency": [
+			"absolutely no fur, hair, beard, hat, beanie or cap",
+			"no text anywhere except the chest logo",
+			"no fabric textures; smooth toy-like surfaces"
+		]
+	},
+	"proportions": {
+		"height_m": 0.9,
+		"head_to_body_ratio": 0.55,
+		"hand_size_vs_head": 0.42,
+		"limb_thickness_scale": 0.95,
+		"foot_length_vs_height": 0.16
+	},
+	"character": {
+		"role": "Vorte Mascot and Helper",
+		"canonical_name": "Vor",
+		"gender_expression": "neutral",
+		"parts": {
+			"skin": { "material": "rubber_matte", "hex": "#AEE7D9", "shadow_hex": "#8DD3C5" },
+			"hoodie": { "material": "soft_paint_satin", "hex": "#113C34" },
+			"hood": { "material": "soft_paint_satin", "hex": "#18574B" },
+			"cords": { "material": "soft_paint_satin", "hex": "#18574B" },
+			"pants": { "material": "soft_paint_satin", "hex": "#113C34" },
+			"shoes": { "material": "soft_paint_satin", "hex": "#113C34" },
+			"eyes": {
+				"shape": "large_circle",
+				"iris_hex": "#1B1B1B",
+				"pupil_hex": "#1B1B1B",
+				"highlight": "two_small_white_specular_dots"
+			},
+			"brows": {
+				"present": true,
+				"shape": "thin_soft_arc",
+				"hex": "#2AA19A",
+				"thickness_pct_of_head": 1.1
+			},
+			"mouth": {
+				"shape": "soft_smile",
+				"hex": "#0E0E0E",
+				"width_pct_of_head": 15
+			}
+		},
+		"pose_defaults": {
+			"neutral": "standing_relaxed_arms_down",
+			"friendly": "standing_wave_right_hand",
+			"strict_guard": "arms_crossed_sunglasses_on",
+			"work": "sitting_crosslegged_with_laptop",
+			"writing": "standing_holding_clipboard_right_hand_pen"
+		}
+	},
+	"rig_hints": {
+		"biped_simple": true,
+		"facial_blendshapes": ["smile_soft", "smile_big", "surprised_small", "brows_raise_small", "brows_lower_small"],
+		"ik": ["arms", "legs"]
+	},
+	"render": {
+		"background": { "mode": "clean_white", "hex": "#FFFFFF" },
+		"shadow_caster": { "enabled": true, "intensity": 0.35, "softness": 0.8 },
+		"camera": { "focal_mm": 50, "distance_m": 1.4, "height_offset_m": 0.05, "angle_deg": 0 },
+		"dof": { "enabled": true, "f_stop": 4.0, "focus": "eyes" },
+		"lighting": {
+			"preset": "three_point_soft",
+			"key": { "angle_deg": 25, "intensity": 1.0 },
+			"fill": { "ratio": 0.5, "tint_hex": "#18574B" },
+			"rim": { "ratio": 0.3, "tint_hex": "#30D5C8" },
+			"exposure_ev": 10.5
+		}
+	},
+	"accessories_rules": {
+		"allowed": ["sunglasses_black_for_guard_pose", "clipboard_wooden_with_metal_clip", "minimalist_gray_laptop_no_screen_ui"],
+		"forbidden": ["hats_beanies_caps", "beards_hair_ears_nose", "additional_text_or_logos", "weapons_or_aggressive_props"]
+	},
+	"composition_rules": {
+		"framing": "full_character_with_full_head_visible",
+		"no_crop_at_joints": true,
+		"subject_scale_pct_of_frame": 75,
+		"keep_upright": true
+	},
+	"qa_checklist": [
+		"Skin exact #AEE7D9 with #8DD3C5 shading",
+		"Hoodie/pants/shoes #113C34; hood/cords #18574B",
+		"Logo white, width 34% of torso, centered, vertical offset -2% torso",
+		"Thin light-teal eyebrows (#2AA19A)",
+		"Large black circular eyes with two white highlights",
+		"Soft smile mouth #0E0E0E width 15% head",
+		"Clean white background; soft contact shadow 0.35",
+		"No extra text, hats, hair, or off-brand symbols"
+	],
+	"usage": {
+		"instruction": "Provide this profile verbatim plus a single action or pose description from ‘pose_defaults’ or a short custom action. Do not modify colors, proportions, or logo rules."
+	}
+}

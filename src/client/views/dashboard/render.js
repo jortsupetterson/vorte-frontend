@@ -6,10 +6,7 @@ if (!document.getElementById('dashboard-styles')) {
 
 function render(lang, contentPromise) {
 	return new Promise(async (resolve) => {
-		if (!document.body.querySelector('sidebar')) {
-			document.body.innerHTML = '';
-			initializeDOM();
-		}
+		app.sidebar.footer.vor.src = '/images/Vor/coding.svg';
 
 		let list = '';
 
@@ -24,6 +21,7 @@ function render(lang, contentPromise) {
           title="${listItem.title[lang]}"
         >
           <menu-item>
+		  ${listItem.icon || ''}
 		  ${listItem.text[lang]}
 		  </menu-item>
         </a>

@@ -21,10 +21,4 @@ body {
 	overflow: hidden;
 	scroll-behavior: smooth;
 	padding: var(--pad1);
-	mask-image: linear-gradient(to right, transparent 0%, var(--bg) 1%, var(--bg) 99%, transparent 100%);
-	mask-size: 100% 100%;
-	mask-repeat: no-repeat;
-	-webkit-mask-image: linear-gradient(to right, transparent 0%, var(--bg) 1%, var(--bg) 99%, transparent 100%);
-	-webkit-mask-size: 100% 100%;
-	-webkit-mask-repeat: no-repeat;
 }

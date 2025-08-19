@@ -1,41 +1,41 @@
 html[data-theme='dark'] button#dark-theme {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-theme='light'] button#light-theme {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-contrast='low'] button#low-contrast {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-contrast='normal'] button#normal-contrast {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-contrast='high'] button#high-contrast {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[lang='fi'] button#fi-language {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[lang='sv'] button#sv-language {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[lang='en'] button#en-language {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-newsletter='true'] button#subscribe {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-newsletter='false'] button#unsubscribe {
-	background: var(--c1);
+	background: var(--bg-ghost);
 }
 
 html[data-view='interface'] a#interface menu-item {

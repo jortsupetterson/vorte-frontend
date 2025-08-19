@@ -34,6 +34,10 @@ export default function initializeDOM() {
 		hideSidebarButton: ensureChild('hide-sidebar-button', sidebarHeader),
 	};
 	app.sidebar.list = ensureChild('ul', app.sidebar.self);
+	const sidebarFooter = ensureChild('footer', app.sidebar.self);
+	app.sidebar.footer = {
+		vor: ensureChild('img', sidebarFooter),
+	};
 
 	app.view = app.view || {};
 	app.view.self = ensureRoot('view');

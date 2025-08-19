@@ -1,8 +1,8 @@
-import getSearchEngineCard from '../shared/utilities/getSearchEngineCard.js';
-import getOpenGraphCard from '../shared/utilities/getOpenGraphCard.js';
-import getTwitterCard from '../shared/utilities/getTwitterCard.js';
-import getSchemaLD from '../shared/utilities/getSchemaLD.js';
-import getPwa from '../shared/utilities/getPwa.js';
+import getSearchEngineCard from '../components/getSearchEngineCard.js';
+import getOpenGraphCard from '../components/getOpenGraphCard.js';
+import getTwitterCard from '../components/getTwitterCard.js';
+import getSchemaLD from '../components/getSchemaLD.js';
+import getPwa from '../components/getPwa.js';
 
 export default async function serverSideRender(
 	lang,

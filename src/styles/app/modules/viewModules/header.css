@@ -3,7 +3,7 @@ view header {
 	top: -1%;
 	min-width: 100%;
 	min-height: 10%;
-	background: var(--solid-ghost1);
+	background: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;

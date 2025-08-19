@@ -1,0 +1,20 @@
+sidebar footer {
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	bottom: 0;
+	left: 0;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 33vh;
+	height: 33vh;
+	max-height: 33vh;
+	pointer-events: none;
+}
+
+sidebar footer img {
+	position: relative;
+	max-height: 90%;
+}

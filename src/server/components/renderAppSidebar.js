@@ -13,6 +13,7 @@ export default function renderAppSidebar(lang, sidebarHeadline, sidebarList) {
           title="${listItem.title[lang]}"
         >
           <menu-item>
+          ${listItem.icon || ''}
           ${listItem.text[lang]}
           </menu-item>
         </a>
@@ -35,6 +36,9 @@ export default function renderAppSidebar(lang, sidebarHeadline, sidebarList) {
         ${list}
         </ul>
         </main>
+        <footer>
+        <img src="/images/Vor/walking.svg" width="100px" height="100px">
+        </footer>
     </sidebar>
     `;
 }

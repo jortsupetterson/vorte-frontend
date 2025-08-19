@@ -12,8 +12,8 @@
 	[role='button']:disabled {
 		cursor: not-allowed;
 	}
-	view footer button:focus,
-	view footer button:hover {
+	.action:focus,
+	.action:hover {
 		transform: scale(1.05);
 	}
 }

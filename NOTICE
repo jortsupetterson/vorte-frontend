@@ -1,0 +1,8 @@
+/LICENSE                # MPL-2.0 (oma koodi)
+/NOTICE                 # viittaukset FA-lisensseihin
+/third_party/fontawesome/
+  LICENSE-MIT.txt
+  LICENSE-CC-BY-4.0.txt
+  LICENSE-OFL-1.1.txt
+/assets/fa/svg/*.svg    # ikonit (CC BY)
+/assets/fa/webfonts/*.woff2  # fontit (OFL)

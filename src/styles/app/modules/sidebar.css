@@ -1,4 +1,5 @@
 @import url('./sidebarModules/hide-sidebar-button.css');
+@import url('./sidebarModules/footer.css');
 
 sidebar {
 	position: fixed;
@@ -38,6 +39,11 @@ sidebar main ul li a menu-item {
 }
 
 sidebar h3 {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: var(--pad1);
 	margin-top: var(--pad3);
 	font-size: clamp(15px, 3vh, 30px);
 	pointer-events: none;

@@ -1,5 +1,7 @@
 .action,
 .function {
+	will-change: transform;
+	transition: transform 0.2s ease-in-out;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -8,12 +10,15 @@
 	font-family: 'Inter';
 	font-size: clamp(10px, 2vh, 20px);
 	text-align: left;
+	padding: calc(var(--pad1) / 2) var(--pad1);
+	background: var(--bg-ghost);
+	border-radius: var(--br1);
 }
 
 .action::before,
 .function::before {
 	content: '';
-	display: block;
+	display: none;
 	position: relative;
 	left: 5%;
 	height: clamp(10px, 2vh, 20px);

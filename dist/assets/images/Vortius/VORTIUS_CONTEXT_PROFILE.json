@@ -1,0 +1,153 @@
+{
+	"profile_name": "vortius_sigma_green_ash_minimal_gp",
+	"version": "1.0.0",
+	"determinism": {
+		"strict": true,
+		"seed": 1032662620,
+		"randomness": 0.0,
+		"temperature": 0.0,
+		"guidance_scale": 7.0,
+		"scheduler": "ddim",
+		"steps": 30,
+		"model_version_hint": "3d-toy-style"
+	},
+
+	"brand": {
+		"name": "Vorte",
+		"colors": {
+			"skin_ash_gray_green": "#A6B0AA",
+			"skin_shadow": "#8E9893",
+			"apparel_black": "#0E0E0E",
+			"apparel_black_deep": "#0A0A0A",
+			"white": "#FFFFFF",
+			"gold_primary": "#D4AF37",
+			"gold_shadow": "#B88A1E",
+			"eye_black": "#1B1B1B",
+			"brow_charcoal": "#2A2C30",
+			"background_offwhite": "#FBF8F6"
+		},
+		"logo": {
+			"id": "vorte_V_exact",
+			"hex": "#FFFFFF",
+			"render_style": "flat_white_decal",
+			"safe_clearspace_pct": 12,
+			"geometry_rules": {
+				"type": "stacked_V_trident",
+				"aspect_ratio_w_h": 0.78,
+				"notes": "Exact V with top bar and inner triangle knockout.",
+				"svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' fill='#FFFFFF'><path d='M350 210H650L620 260H380Z'/><path d='M290 260 L500 820 L710 260 L620 260 L500 650 L380 260 Z' fill-rule='evenodd'/><path d='M440 430 L500 300 L560 430 Z'/></svg>"
+			},
+			"placement_rules": {
+				"where": "tank_center_chest",
+				"width_pct_of_torso": 32,
+				"vertical_offset_pct_of_torso": -1,
+				"rotation_deg": 0,
+				"must_be_visible": true
+			}
+		}
+	},
+
+	"style": {
+		"look": "3d_rubberized_matte",
+		"finish": "soft_matte",
+		"silhouette": "ultra_rounded_powerful",
+		"consistency": [
+			"no hair or facial hair",
+			"no nose",
+			"no extra text or logos besides chest decal",
+			"no fabric grain; smooth toy-like surfaces",
+			"no etched lines or subsurface detail on face"
+		]
+	},
+
+	"proportions": {
+		"height_m": 0.9,
+		"head_to_body_ratio": 0.56,
+		"hand_size_vs_head": 0.42,
+		"limb_thickness_scale": 1.08,
+		"foot_length_vs_height": 0.17,
+		"shoulder_width_vs_hips": 1.22
+	},
+
+	"character": {
+		"canonical_name": "Vortius",
+		"role": "Vorte Mascot / Helper",
+		"parts": {
+			"skin": { "material": "rubber_matte", "hex": "#A6B0AA", "shadow_hex": "#8E9893" },
+			"tank_top": { "material": "rubber_matte", "hex": "#0E0E0E" },
+			"shorts": { "material": "rubber_matte", "hex": "#0E0E0E" },
+			"sneakers": { "material": "rubber_matte", "hex": "#0A0A0A", "detail_hex": "#0E0E0E" },
+			"cap": { "material": "rubber_matte", "hex": "#0E0E0E", "orientation": "backwards" },
+			"watch": { "material": "matte_metal", "hex": "#D4AF37", "dial_hex": "#0A0A0A" },
+			"chain": { "material": "matte_metal", "hex": "#D4AF37", "type": "cuban" },
+			"eyes": { "shape": "large_circle", "iris_hex": "#1B1B1B", "pupil_hex": "#1B1B1B", "highlight": "two_small_white_dots" },
+			"brows": { "present": true, "shape": "low_soft_arc", "hex": "#2A2C30", "thickness_pct_of_head": 1.0 },
+			"mouth": { "shape": "minimal_smirk_right", "hex": "#1B1B1B", "width_pct_of_head": 8 }
+		},
+
+		"expression_presets": {
+			"proud_slightly_smug_minimal": {
+				"brows_lower_pct": 8,
+				"brows_tilt_deg": 5,
+				"eyelids_upper_drop_pct": 0,
+				"mouth_smirk_side": "right",
+				"mouth_corner_raise_pct": 16
+			},
+			"neutral_friendly": {
+				"brows_lower_pct": 0,
+				"mouth_curve_pct": 8
+			}
+		}
+	},
+
+	"accessories_rules": {
+		"must_have": ["cap_backwards_black", "gold_cuban_chain", "gold_watch_black_dial", "black_luxury_sneakers"],
+		"forbidden": ["additional_text_or_logos", "hats_other_than_backwards_cap", "weapons_or_aggressive_props"],
+		"gold_reflection_rule": "Gold accents reflect neutral black/gray highlights only; no green/teal tint."
+	},
+
+	"pose_actions": {
+		"alpha": "standing_chest_out_hands_on_hips",
+		"executive": "arms_crossed_relaxed",
+		"point": "right_hand_pointing_forward",
+		"thumbs_up": "right_thumb_up_left_hand_relaxed",
+		"walk": "walking_forward_confident_stride",
+		"wave": "right_hand_wave",
+		"work": "standing_with_laptop_two_hands",
+		"wrench": "holding_large_wrench_in_right_hand"
+	},
+
+	"render": {
+		"background": { "mode": "clean_offwhite", "hex": "#FBF8F6" },
+		"shadow_caster": { "enabled": true, "intensity": 0.35, "softness": 0.85 },
+		"camera": { "focal_mm": 50, "distance_m": 1.8, "height_offset_m": 0.0, "angle_deg": 0 },
+		"composition": {
+			"framing": "full_body_with_full_head_visible",
+			"no_crop_at_joints": true,
+			"subject_scale_pct_of_frame": 72,
+			"keep_upright": true
+		},
+		"dof": { "enabled": true, "f_stop": 4.0, "focus": "eyes" },
+		"lighting": {
+			"preset": "three_point_soft",
+			"key": { "angle_deg": 25, "intensity": 1.0, "tint_hex": "#FFFFFF" },
+			"fill": { "ratio": 0.55, "tint_hex": "#2A2C30" },
+			"rim": { "ratio": 0.25, "tint_hex": "#FFFFFF" },
+			"exposure_ev": 10.4
+		}
+	},
+
+	"qa_checklist": [
+		"Face minimal: round eyes + tiny smirk; NO nose; no etched detail.",
+		"Tank, shorts, sneakers EXACT same black (#0E0E0E family).",
+		"Backwards black cap present.",
+		"Gold Cuban chain + gold watch with black dial; gold reflects black/gray, not teal/green.",
+		"Vorte logo decal EXACT (use embedded SVG), centered, width 32% torso, vertical offset -1%, rotation 0°.",
+		"Full body in frame; no cropping at head/feet/hands.",
+		"Rubberized matte look; no fabric grain or extra text."
+	],
+
+	"usage": {
+		"instruction": "Use this JSON context verbatim. Provide ONE action from 'pose_actions' and optionally an expression from 'expression_presets' (default: proud_slightly_smug_minimal). Do not alter colors, logo geometry, or required accessories. Always render full body."
+	}
+}

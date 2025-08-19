@@ -1,8 +1,8 @@
 import serverSideRender from '../serverSideRender.js';
 import getPageResponseHeaders from '../../shared/utilities/getPageResponseHeaders.js';
-import renderAppBanner from '../../shared/components/renderAppBanner.js';
-import renderAppView from '../../shared/components/renderAppView.js';
-import renderAppSidebar from '../../shared/components/renderAppSidebar.js';
+import renderAppBanner from '../components/renderAppBanner.js';
+import renderAppView from '../components/renderAppView.js';
+import renderAppSidebar from '../components/renderAppSidebar.js';
 
 export const content = {
 	titles: {
