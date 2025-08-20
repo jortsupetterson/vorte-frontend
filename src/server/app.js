@@ -1,6 +1,6 @@
 import { initializeServices } from './services/initializeServices.js';
 import { getCookies, getDecryptedCookie } from './utilities/getCookies.js';
-import routeDefinitions from './routeDefinitions.js';
+import routeDefinitions from './modules/routeDefinitions.js';
 
 /** @module serverSideRouter
  *  Ultra-low-latency router for Cloudflare Workers.
