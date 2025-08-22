@@ -141,7 +141,7 @@ export async function signUpHandler(widgetId) {
 				const installEl = document.getElementById('install');
 				installEl.addEventListener('click', (e) => {
 					e.preventDefault();
-					window.pwaInstall.prompt(lang);
+					window.pwaInstall(lang);
 				});
 			} catch (err) {
 				console.error(err);

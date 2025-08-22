@@ -1,49 +1,37 @@
 @import url('./modules/vars.css');
-
-html[data-view='sign_in'] body,
-html[data-view='sign_up'] body {
-	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 130vh;
-	height: 130vh;
-	overflow-y: auto;
-}
+@import url('./modules/sign-in.css');
+@import url('./modules/sign-up.css');
 
 section.authn {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: clamp(200px, 512px, 85%);
-	min-height: 100%;
+	position: relative;
+	width: clamp(200px, 450px, 90%);
+	height: 75vh;
 	gap: var(--pad2);
-	overflow-y: auto;
-	z-index: 5;
-}
-
-section.authn div.column {
-	width: clamp(200px, 512px, 85%);
+	z-index: 1;
+	background: var(--blue-ghost);
+	border-radius: var(--br3);
+	padding: var(--pad3);
 }
 
 section.authn h1 {
-	position: relative;
-	left: 50%;
-	min-width: 100%;
-	max-width: 100%;
-	text-align: center;
-	justify-content: center;
-	transform: translate(-50%, -50%);
+	font-weight: 300;
+	font-size: clamp(15px, 3vh, 30px);
 }
 
-section.authn h1::before {
-	display: none;
+section.authn figure {
+	position: absolute;
+	left: -48.5%;
+	bottom: -9%;
+	background: transparent;
+	pointer-events: none;
+}
+section.authn figure img {
+	max-width: 40vh;
+	max-height: 40vh;
 }
 
 section.authn h4 {
@@ -184,4 +172,11 @@ dialog a h5:hover {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+
+@media (max-width: 768px) {
+	section.authn figure {
+		left: auto;
+		right: -17%;
+	}
 }

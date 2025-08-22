@@ -58,6 +58,7 @@ export default async function serverSideRender(
 	    --c4: ${cookies.c4 || '#196129'};
         }
     </style>
+    <link rel="stylesheet" href="/styles/V£RSION/always/style.css">
     ${stylesheets}
     <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin />
 	<link rel="dns-prefetch" href="//static.cloudflareinsights.com" />
@@ -76,7 +77,7 @@ export default async function serverSideRender(
     </head>
     <body>
     ${body}
-        <script type="module" src="/scripts/app.js" defer></script>
+        <script type="module" src="/scripts/V£RSION/app.js" defer></script>
     ${events}
     </body>
     </html>

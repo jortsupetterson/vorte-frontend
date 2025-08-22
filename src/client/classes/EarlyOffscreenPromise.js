@@ -1,4 +1,4 @@
-const offscreenFetcher = new Worker('/scripts/workers/offscreenFetcher.js');
+const offscreenFetcher = new Worker('/scripts/V£RSION/workers/offscreenFetcher.js');
 
 export class EarlyOffscreenPromise {
 	constructor(dataKey) {

@@ -1,9 +1,9 @@
-import { content } from '../../../server/pages/authentication.js';
+import { content } from '../../../server/pages/authentication/render.js';
 
 if (!document.getElementById('authentication-styles')) {
 	document.head.insertAdjacentHTML(
 		'beforeend',
-		`<link id="authentication-styles" rel="stylesheet" href="/styles/authentication/style.css" />`
+		`<link id="authentication-styles" rel="stylesheet" href="/styles/V£RSION/authentication/style.css" />`
 	);
 }
 
@@ -56,7 +56,7 @@ function render(lang) {
 
 export async function renderAuthentication(lang) {
 	await render(lang);
-	const { handleEvents } = await import('../../events/authentication/handleEvents.js');
+	const { handleEvents } = await import('/scripts/V£RSION/events/authentication/handleEvents.js');
 	handleEvents();
 	sessionStorage.setItem('last-visited-authentication-view', document.documentElement.getAttribute('data-view'));
 }

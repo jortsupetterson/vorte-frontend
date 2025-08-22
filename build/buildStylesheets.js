@@ -14,7 +14,7 @@ export default async function buildStylesheets(entry = [], outDir = './dist/asse
 		throw new Error('buildStyles: entry must be non-empty array and outDir must be a non-empty string');
 	}
 
-	await emptyDir(outDir);
+	await emptyDir('./dist/assets/styles');
 
 	return build({
 		entryPoints: entry,

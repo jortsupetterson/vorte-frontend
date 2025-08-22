@@ -1,7 +1,7 @@
-import { renderAuthentication } from './pages/authentication.js';
-import { renderCalender } from './pages/calender.js';
-import { renderDashboard } from './pages/dashboard.js';
-import { renderSettings } from './pages/settings.js';
+import { renderAuthentication } from '../pages/authentication/render.js';
+import { renderCalender } from '../pages/calendar/render.js';
+import { renderDashboard } from '../pages/dashboard/render.js';
+import { renderSettings } from '../pages/settings/render.js';
 
 /**
  * @typedef {Object} RouteDefinition
@@ -45,34 +45,34 @@ const routeDefinitions = [
 			'logga-ut',
 			'inloggning',
 		],
-		handler: async (lang, nonce, cookies, route, env, params) => {
-			return renderAuthentication(lang, nonce, cookies, 'noindex', route, env, params);
+		handler: async (env, lang, nonce, cookies, route, searchParams) => {
+			return renderAuthentication(lang, nonce, cookies, 'noindex', route, env, searchParams);
 		},
 	},
 	{
 		aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel', 'instrumentpanel', 'dash'],
-		handler: async (lang, nonce, cookies, route, env, params) => {
+		handler: async (env, lang, nonce, cookies, route, searchParams) => {
 			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'dashboard');
 			return renderDashboard(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},
 	},
 	{
 		aliases: ['my-settings', 'user', 'omat-asetukset', 'käyttäjä', 'inställningar', 'mina-inställningar', 'användare'],
-		handler: async (lang, nonce, cookies, route, env, params) => {
+		handler: async (env, lang, nonce, cookies, route, searchParams) => {
 			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'user');
 			return renderSettings(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},
 	},
 	{
 		aliases: ['interface', 'käyttöliittymä', 'gräns-snittet'],
-		handler: async (lang, nonce, cookies, route, env, params) => {
+		handler: async (env, lang, nonce, cookies, route, searchParams) => {
 			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'interface');
 			return renderSettings(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},
 	},
 	{
 		aliases: ['calendar', 'kalenteri', 'kalender'],
-		handler: async (lang, nonce, cookies, route, env, params) => {
+		handler: async (env, lang, nonce, cookies, route, searchParams) => {
 			const contentPromise = env.DATA_SERVICE.readData(cookies.AUTHORIZATION, lang, 'calender');
 			return renderCalender(lang, nonce, cookies, 'noindex', route, env, contentPromise);
 		},

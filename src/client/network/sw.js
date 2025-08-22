@@ -1,22 +1,15 @@
-import handleAssetsCache from './handlers/handleAssetsCache.js';
-import handleServicesCache from './handlers/handleServicesCache.js';
+import { reCache } from './handlers/handleServicesReCache';
 
-const CACHE_VERSION = '0.0.0';
+const CACHE_VERSION = 'v0';
 const PRE_CACHE = `pre-cache-${CACHE_VERSION}`;
 const ASSETS_CACHE = `assets-cache-${CACHE_VERSION}`;
 const SERVICES_CACHE = `services-cache-${CACHE_VERSION}`;
+const handlerMap = {
+	reCache: reCache,
+};
 
 const PRECACHE_URLS = [
 	'/scripts/app.js',
-	'/scripts/network/sw.js',
-	'/scripts/events/authentication/handleEvents.js',
-	'/scripts/events/dashboard/handleEvents.js',
-	'/scripts/events/settings/handleEvents.js',
-
-	'/styles/app/style.css',
-	'/styles/authentication/style.css',
-	'/styles/dashboard/style.css',
-	'/styles/settings/style.css',
 ];
 
 self.addEventListener('install', (event) => {
@@ -26,6 +19,13 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
 	event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener('message', (event) => {
+	const cmd = event.data?.task || event.data;
+	const handler = handlerMap[cmd];
+	if (event.data?.id) event.source?.postMessage({ type: 'ACK', id: event.data.id });
+	if (typeof handler === 'function') event.waitUntil(handler(CACHE_VERSION, event.data?.targets));
 });
 
 self.addEventListener('fetch', (event) => {

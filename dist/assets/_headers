@@ -1,6 +1,7 @@
-/scripts/network/sw.js
-  Service-Worker-Allowed: /
+/scripts/*/network/sw.js
   Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+  X-Content-Type-Options: nosniff
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable
@@ -14,15 +15,18 @@
 /browserconfig.xml
   Cache-Control: public, max-age=31536000, immutable
 
-# Fonts tallennetaan paikalliseen välimuistiin ikuisesti
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
-#/styles/*
-  #Cache-Control: public, max-age=60, s-maxage=300, stale-while-revalidate=30
+/styles/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
-#/scripts/*
-  #Cache-Control: public, max-age=60, s-maxage=300, stale-while-revalidate=30
+/scripts/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
-  /scripts/workers/*
+/scripts/workers/*
+  Cache-Control: public, max-age=31536000, immutable
   Cross-Origin-Embedder-Policy: require-corp

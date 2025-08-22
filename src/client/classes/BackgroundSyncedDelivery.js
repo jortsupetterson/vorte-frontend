@@ -1,8 +1,8 @@
 let postman;
 if (window.Worker) {
-	postman = new Worker('/scripts/workers/postman.js');
+	postman = new Worker('/scripts/V£RSION/workers/postman.js');
 } else {
-	postman = { delivery } = await import('/scripts/workers/postman.js');
+	postman = { delivery } = await import('/scripts/V£RSION/workers/postman.js');
 }
 
 export class BackgroundSyncedDelivery {

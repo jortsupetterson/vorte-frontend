@@ -5,3 +5,8 @@ html[data-view='sign_up'] a#sign_up menu-item {
 html[data-view='sign_in'] a#sign_in menu-item {
 	font-weight: 500;
 }
+
+html[data-view='sign_up'],
+html[data-view='sign_in'] {
+	--blue-ghost: rgba(11, 79, 96, 0.18);
+}
