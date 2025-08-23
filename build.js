@@ -4,6 +4,7 @@ import buildBrowserScripts from './src/build/buildBrowserScripts.js';
 import buildEdgeScripts from './src/build/buildEdgeScripts.js';
 import buildWebManifests from './src/build/buildWebManifests.js';
 import buildBrowserConfig from './src/build/buildBrowserConfig.js';
+import buildHeaders from './src/build/buildHeaders.js';
 
 let oldVersion = await readFile('./src/build/state.txt');
 
@@ -13,6 +14,8 @@ try {
 	await rename(`./dist/assets/${oldVersion}`, `./dist/assets/${newVersion}`);
 
 	await Promise.all([
+		buildHeaders(newVersion),
+
 		buildBrowserConfig(newVersion),
 
 		buildWebManifests(newVersion),

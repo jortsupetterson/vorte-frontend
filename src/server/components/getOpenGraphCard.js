@@ -4,7 +4,7 @@ export default function getOpenGraphCard(lang, title, description, urls) {
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Vorte" />
-    <meta property="og:title" content="${title[lang]} />
+    <meta property="og:title" content="${title[lang]}" />
 
     <meta property="og:description" content="${description[lang]}" />
 

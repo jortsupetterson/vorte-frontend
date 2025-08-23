@@ -9,7 +9,7 @@ section.authn {
 	align-items: center;
 	position: relative;
 	width: clamp(200px, 450px, 90%);
-	height: 75vh;
+	height: 80vh;
 	gap: var(--pad2);
 	z-index: 1;
 	background: var(--blue-ghost);

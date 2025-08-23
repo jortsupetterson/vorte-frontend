@@ -1,34 +1,43 @@
+import { writeFile } from 'fs/promises';
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/scripts/network/sw.js
+function build(newVersion) {
+	return `
+/${newVersion}/scripts/network/sw.js
   Cache-Control: public, max-age=0, must-revalidate
   Service-Worker-Allowed: /
   X-Content-Type-Options: nosniff
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/images/*
+/${newVersion}/images/*
   Cache-Control: public, max-age=31536000, immutable
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/web/*
+/${newVersion}/web/*
   Cache-Control: public, max-age=31536000, immutable
 
 /favicon.ico
   Cache-Control: public, max-age=31536000, immutable
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/browserconfig.xml
+/${newVersion}/browserconfig.xml
   Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/styles/*
+/${newVersion}/styles/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/scripts/*
+/${newVersion}/scripts/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/73aab249-3b38-45ca-bea4-fb02194634a4/scripts/data/workers/*
+/${newVersion}/scripts/data/workers/*
   Cache-Control: public, max-age=31536000, immutable
   Cross-Origin-Embedder-Policy: require-corp
-    
+    `;
+}
+
+export default async function buildHeaders(newVersion) {
+	const content = build(newVersion);
+	await writeFile(`./dist/assets/_headers`, content);
+}

@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	globalThis.cookies = createCookieProxy();
 
-	if ('serviceWorker' in navigator) {
+	if ('serviceWorker' in navigator && cookies.AUTHORIZATION) {
 		await navigator.serviceWorker.register('/V£RSION/scripts/network/sw.js', { scope: '/', type: 'module' });
 
 		const attr = document.documentElement.getAttribute('data-sw');
