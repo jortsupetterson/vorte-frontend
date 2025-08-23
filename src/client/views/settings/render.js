@@ -3,7 +3,7 @@ import { content } from '../../../server/pages/settings/render.js';
 if (!document.getElementById('settings-styles')) {
 	document.head.insertAdjacentHTML(
 		'beforeend',
-		`<link id="settings-styles" rel="stylesheet" href="/styles/V£RSION/apps/my-vorte/settings/style.css" />;`
+		`<link id="settings-styles" rel="stylesheet" href="/V£RSION/styles/apps/my-vorte/settings/style.css" />;`
 	);
 }
 
@@ -54,7 +54,7 @@ function render(lang, contentPromise) {
 export async function renderSettings(lang, contentPromise) {
 	await render(lang, contentPromise);
 	app.view.self.setAttribute('id', document.documentElement.getAttribute('data-view'));
-	const { handleEvents } = await import('/scripts/V£RSION/settings/handleEvents.js');
+	const { handleEvents } = await import('/V£RSION/scripts/settings/handleEvents.js');
 	handleEvents();
 	sessionStorage.setItem('last-visited-settings-view', document.documentElement.getAttribute('data-view'));
 }

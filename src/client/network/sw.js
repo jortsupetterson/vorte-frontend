@@ -1,5 +1,7 @@
 import { reCache } from './handlers/handleServicesReCache';
 
+import routes from './routes/allRouteDefenitions.js';
+
 const CACHE_VERSION = 'v0';
 const PRE_CACHE = `pre-cache-${CACHE_VERSION}`;
 const ASSETS_CACHE = `assets-cache-${CACHE_VERSION}`;
@@ -8,12 +10,8 @@ const handlerMap = {
 	reCache: reCache,
 };
 
-const PRECACHE_URLS = [
-	'/scripts/app.js',
-];
-
 self.addEventListener('install', (event) => {
-	event.waitUntil(caches.open(PRE_CACHE).then((cache) => cache.addAll(PRECACHE_URLS)));
+	event.waitUntil(caches.open(PRE_CACHE).then((cache) => cache.addAll(routes)));
 	self.skipWaiting();
 });
 

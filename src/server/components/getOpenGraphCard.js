@@ -9,7 +9,7 @@ export default function getOpenGraphCard(lang, title, description, urls) {
     <meta property="og:description" content="${description[lang]}" />
 
     <meta property="og:url" content="https://vorte.app/${urls[lang]}" />
-    <meta property="og:image" content="https://vorte.app/images/vorte_social_sharing_image.png" />
+    <meta property="og:image" content="https://vorte.app/V£RSION/images/vorte_social_sharing_image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     

@@ -9,11 +9,11 @@
 		"url": "https://github.com/jortsupetterson"
 	},
 	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev"
+		"deploy": "node build.js && npx wrangler deploy",
+		"dev": "node build.js && npx wrangler dev --remote"
 	},
 	"devDependencies": {
-		"wrangler": "^4.31.0",
+		"wrangler": "^4.32.0",
 		"esbuild": "^0.25.9"
 	},
 	"dependencies": {

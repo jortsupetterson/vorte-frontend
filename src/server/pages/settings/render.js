@@ -6,10 +6,10 @@ import renderAppSidebar from '../../components/renderAppSidebar.js';
 
 //Always include a top level style sheet based on if its a Sales or Application page as well as a view specific stylesheet
 const stylesheets = `
-    <link id="settings-styles" rel="stylesheet" href="/styles/V£RSION/apps/my-vorte/settings/style.css">
+    <link id="settings-styles" rel="stylesheet" href="/V£RSION/styles/apps/my-vorte/settings/style.css">
     `;
 
-const events = `<script type="module" src="/scripts/V£RSION/events/settings/handleEvents.js" defer></script>`;
+const events = `<script type="module" src="/V£RSION/scripts/events/settings/handleEvents.js" defer></script>`;
 
 export const content = {
 	titles: {

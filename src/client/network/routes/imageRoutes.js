@@ -1,1 +1,1 @@
-export const imageRoutes = ['/images/Vor/greeting.svg',];
+export const imageRoutes = ['/V£RSION/images/Vor/greeting.svg'];

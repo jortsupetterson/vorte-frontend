@@ -2,17 +2,12 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"account_id": "e8ef5da3c57b544081f2e4181d6cecc9",
 	"name": "frontend-v0",
-	"main": "./dist/worker/app.js",
+	"main": "./dist/api/app.js",
 	"compatibility_date": "2025-08-12",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"minify": true,
 	"dev": {
 		"local_protocol": "https"
-	},
-	"build": {
-		"watch_dir": "./src",
-		"command": "node build.js",
-		"cwd": "."
 	},
 	"assets": {
 		"directory": "./dist/assets"

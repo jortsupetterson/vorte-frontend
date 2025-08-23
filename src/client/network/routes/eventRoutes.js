@@ -1,5 +1,5 @@
 export const eventRoutes = [
-	'/scripts/V£RSION/events/authentication/handleEvents.js',
-	'/scripts/V£RSION/events/dashboard/handleEvents.js',
-	'/scripts/V£RSION/events/settings/handleEvents.js',
+	'/V£RSION/scripts/events/authentication/handleEvents.js',
+	'/V£RSION/scripts/events/dashboard/handleEvents.js',
+	'/V£RSION/scripts/events/settings/handleEvents.js',
 ];

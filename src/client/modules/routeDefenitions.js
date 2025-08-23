@@ -27,14 +27,14 @@ export const routeDefinitions = [
 			'inloggning',
 		],
 		handler: async (lang) => {
-			const { renderAuthentication } = await import('/scripts/V£RSION/views/authentication/render.js');
+			const { renderAuthentication } = await import('/V£RSION/scripts/views/authentication/render.js');
 			return await renderAuthentication(lang);
 		},
 	},
 	{
 		aliases: ['dashboard', 'ohjauspaneeli', 'instrument-panel'],
 		handler: async (lang, contentPromise) => {
-			const { renderDashboard } = await import('/scripts/V£RSION/views/dashboard/render.js');
+			const { renderDashboard } = await import('/V£RSION/scripts/views/dashboard/render.js');
 			return await renderDashboard(lang, contentPromise);
 		},
 	},
@@ -54,7 +54,7 @@ export const routeDefinitions = [
 			'gräns-snittet',
 		],
 		handler: async (lang, contentPromise) => {
-			const { renderSettings } = await import('/scripts/V£RSION/views/settings/render.js');
+			const { renderSettings } = await import('/V£RSION/scripts/views/settings/render.js');
 			return await renderSettings(lang, contentPromise);
 		},
 	},

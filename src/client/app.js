@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 	globalThis.cookies = createCookieProxy();
 
 	if ('serviceWorker' in navigator) {
-		await navigator.serviceWorker.register('/scripts/V£RSION/network/sw.js', { scope: '/', type: 'module' });
+		await navigator.serviceWorker.register('/V£RSION/scripts/network/sw.js', { scope: '/', type: 'module' });
 
 		const attr = document.documentElement.getAttribute('data-sw');
 		const payload = attr ? { task: attr, id: crypto.randomUUID() } : null;

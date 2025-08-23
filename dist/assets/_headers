@@ -1,32 +1,32 @@
-/scripts/*/network/sw.js
+/*/scripts/network/sw.js
   Cache-Control: public, max-age=0, must-revalidate
   Service-Worker-Allowed: /
   X-Content-Type-Options: nosniff
 
-/images/*
+/*/images/*
   Cache-Control: public, max-age=31536000, immutable
 
-/web-manifest/*
+/*/web/*
   Cache-Control: public, max-age=31536000, immutable
 
 /favicon.ico
   Cache-Control: public, max-age=31536000, immutable
 
-/browserconfig.xml
+/*/browserconfig.xml
   Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
-/styles/*
+/*/styles/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/scripts/*
+/*/scripts/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/scripts/workers/*
+/*/scripts/workers/*
   Cache-Control: public, max-age=31536000, immutable
   Cross-Origin-Embedder-Policy: require-corp

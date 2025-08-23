@@ -20,9 +20,9 @@ Allow: /en/*
 
 # Allow images
 Allow: /favicon.ico
-Allow: /images
-Allow: /images/
-Allow: /images/*
+Allow: */images
+Allow: */images/
+Allow: */images/*
 
 # Sitemap (helps crawlers discover allowed pages)
 Sitemap: https://vorte.app/sitemap.xml

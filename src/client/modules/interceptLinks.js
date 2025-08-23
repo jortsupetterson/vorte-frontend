@@ -1,4 +1,4 @@
-import { EarlyOffscreenPromise } from '../classes/EarlyOffscreenPromise';
+import { EarlyOffscreenPromise } from '../data/classes/EarlyOffscreenPromise';
 
 //src/client/modules/interceptLinks.js
 

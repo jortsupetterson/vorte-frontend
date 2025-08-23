@@ -3,7 +3,7 @@ import { content } from '../../../server/pages/dashboard/render.js';
 if (!document.getElementById('dashboard-styles')) {
 	document.head.insertAdjacentHTML(
 		'beforeend',
-		`<link id="dashboard-styles" rel="stylesheet" href="/styles/V£RSION/apps/my-vorte/dashboard/style.css" />;`
+		`<link id="dashboard-styles" rel="stylesheet" href="/V£RSION/styles/apps/my-vorte/dashboard/style.css" />;`
 	);
 }
 
@@ -51,6 +51,6 @@ function render(lang, contentPromise) {
 export async function renderDashboard(lang, contentPromise) {
 	app.view.self.setAttribute('id', 'dashboard');
 	await render(lang, contentPromise);
-	const { handleEvents } = await import('/scripts/V£RSION/events/dashboard/handleEvents.js');
+	const { handleEvents } = await import('/V£RSION/scripts/events/dashboard/handleEvents.js');
 	handleEvents();
 }

@@ -3,7 +3,7 @@ import getPageResponseHeaders from '../../utilities/getPageResponseHeaders.js';
 import html from './sign-in/html.js';
 
 const stylesheets = `
-    <link id="authentication-styles" rel="stylesheet" href="/styles/V£RSION/authentication/style.css">
+    <link id="authentication-styles" rel="stylesheet" href="/V£RSION/styles/authentication/style.css">
   `;
 
 const headInjection = `
@@ -12,7 +12,7 @@ const headInjection = `
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	`;
 
-const events = `<script type="module" src="/scripts/V£RSION/events/authentication/handleEvents.js" defer></script>`;
+const events = `<script type="module" src="/V£RSION/scripts/events/authentication/handleEvents.js" defer></script>`;
 
 export const content = {
 	titles: {

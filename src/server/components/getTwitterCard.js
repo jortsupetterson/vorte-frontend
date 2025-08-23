@@ -6,7 +6,7 @@ export default function getTwitterCard(lang, title, description, urls) {
     <meta name="twitter:description" content="${description[lang]}" />
 
     <meta name="twitter:url" content="${urls[lang]}" />
-    <meta name="twitter:image" content="https://vorte.app/vorte_social_sharing_image.png" />
+    <meta name="twitter:image" content="https://vorte.app/V£RSION/images/vorte_social_sharing_image.png" />
 
     <meta name="twitter:image:alt" content="${
 			{
