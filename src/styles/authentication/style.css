@@ -8,7 +8,7 @@ section.authn {
 	justify-content: flex-start;
 	align-items: center;
 	position: relative;
-	width: clamp(200px, 450px, 90%);
+	width: clamp(200px, 480px, 95%);
 	height: 80vh;
 	gap: var(--pad2);
 	z-index: 1;
@@ -24,14 +24,19 @@ section.authn h1 {
 
 section.authn figure {
 	position: absolute;
-	left: -48.5%;
-	bottom: -9%;
+	left: 0;
+	bottom: 0;
+	transform: translate(-95%, 5%);
 	background: transparent;
 	pointer-events: none;
 }
 section.authn figure img {
-	max-width: 40vh;
-	max-height: 40vh;
+	max-width: 25vh;
+	max-height: 25vh;
+}
+
+section.authn figure p {
+	display: none;
 }
 
 section.authn h4 {
@@ -88,6 +93,7 @@ html[data-view='sign_up'] svg.background {
 	left: 50%;
 	transform: translate(-50%, -40%);
 	shape-rendering: crispEdges;
+	min-height: 100vh;
 }
 
 section.authn div.checkbox strong {
@@ -174,9 +180,34 @@ dialog a h5:hover {
 	align-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
 	section.authn figure {
 		left: auto;
-		right: -17%;
+		right: 0%;
+		transform: translate(5%, 5%);
+	}
+}
+
+@media (min-width: 912px) and (orientation: landscape) {
+	section.authn figure p {
+		display: block;
+		position: absolute;
+		font-weight: 100;
+		font-family: 'Inter';
+		font-size: clamp(8px, 2vh, 16px);
+		top: -20%;
+		left: -10%;
+	}
+
+	section.authn figure p::after {
+		position: absolute;
+		display: block;
+		content: '';
+		min-height: 1px;
+		min-width: 10%;
+		right: 0%;
+		bottom: -100%;
+		transform: rotate(45deg) translate(-50%);
+		background-color: var(--text);
 	}
 }

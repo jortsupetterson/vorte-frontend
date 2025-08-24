@@ -74,6 +74,7 @@ function build(newVersion, lang) {
     `;
 }
 
+const mascotArr = ['Vor', 'Vortius', 'Vortiina'];
 const langArr = ['fi', 'sv', 'en'];
 
 export default async function buildWebManifests(newVersion) {

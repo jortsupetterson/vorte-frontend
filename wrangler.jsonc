@@ -15,7 +15,9 @@
 	"observability": {
 		"enabled": true
 	},
-
+	"build": {
+		"watch_dir": "./src"
+	},
 	"placement": { "mode": "smart" },
 
 	"secrets_store_secrets": [

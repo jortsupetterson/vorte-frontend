@@ -2,7 +2,7 @@
     {
 	"name": "Vorte",
 	"short_name": "Vorte",
-	"description": "Selkeät raportit, fiksu automaatio ja pilvipalvelun vapaus tekevät arjesta järkevämpää.",
+	"description": "Klara rapporter, smart automatisering och molntjänstens frihet gör vardagen mer meningsfull.",
 	"start_url": "/?pwa",
 	"display": "standalone",
 	"display_override": ["window-controls-overlay", "standalone"],
@@ -11,37 +11,37 @@
 	"orientation": "portrait",
 	"icons": [
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-36x36.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-36x36.png",
 			"sizes": "36x36",
 			"type": "image/png",
 			"density": "0.75"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-48x48.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-48x48.png",
 			"sizes": "48x48",
 			"type": "image/png",
 			"density": "1.0"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-72x72.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-72x72.png",
 			"sizes": "72x72",
 			"type": "image/png",
 			"density": "1.5"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-96x96.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-96x96.png",
 			"sizes": "96x96",
 			"type": "image/png",
 			"density": "2.0"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-144x144.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-144x144.png",
 			"sizes": "144x144",
 			"type": "image/png",
 			"density": "3.0"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/android/icon-192x192.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/android/icon-192x192.png",
 			"sizes": "192x192",
 			"type": "image/png",
 			"density": "4.0"
@@ -49,13 +49,13 @@
 	],
 	"screenshots": [
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/screenshots/fi/landscape.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/screenshots/sv/landscape.png",
 			"sizes": "1280x720",
 			"type": "image/png",
 			"form_factor": "wide"
 		},
 		{
-			"src": "/73aab249-3b38-45ca-bea4-fb02194634a4/images/screenshots/fi/portrait.png",
+			"src": "/eb5e32a9-a341-42d6-8824-0755702e339c/images/screenshots/sv/portrait.png",
 			"sizes": "540x960",
 			"type": "image/png"
 		}
